@@ -1,0 +1,30 @@
+HTTrack3.49-2+htsswf+htsjava launched on Sun, 17 Jul 2022 22:24:54 at https://themes.pixelstrap.com/voxo/back-end/index.html +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://themes.pixelstrap.com/voxo/back-end/index.html -O1 "F:\MyWebSite\pielback" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+22:25:33	Error: 	"Not Found" (404) at link https://themes.pixelstrap.com/voxo/back-end/assets/assets/images/ajax-loader.gif (from https://themes.pixelstrap.com/voxo/back-end/assets/css/slick-theme.css)
+22:25:34	Error: 	"Not Found" (404) at link https://themes.pixelstrap.com/voxo/back-end/assets/images/other-images/coming-soon-bg.jpg (from https://themes.pixelstrap.com/voxo/back-end/assets/css/style.css)
+22:25:34	Error: 	"Not Found" (404) at link https://themes.pixelstrap.com/voxo/back-end/assets/images/dashboard/bg.jpg (from https://themes.pixelstrap.com/voxo/back-end/assets/css/style.css)
+22:25:34	Error: 	"Not Found" (404) at link https://themes.pixelstrap.com/voxo/back-end/assets/images/other-images/mobile-clock-wallpaper.jpg (from https://themes.pixelstrap.com/voxo/back-end/assets/css/style.css)
+22:25:34	Error: 	"Not Found" (404) at link https://themes.pixelstrap.com/voxo/back-end/assets/images/other-images/clock-face.png (from https://themes.pixelstrap.com/voxo/back-end/assets/css/style.css)
+22:25:34	Error: 	"Not Found" (404) at link https://themes.pixelstrap.com/voxo/back-end/assets/images/sec.svg (from https://themes.pixelstrap.com/voxo/back-end/assets/css/style.css)
+22:25:34	Error: 	"Not Found" (404) at link https://themes.pixelstrap.com/voxo/back-end/assets/images/min.svg (from https://themes.pixelstrap.com/voxo/back-end/assets/css/style.css)
+22:25:34	Error: 	"Not Found" (404) at link https://themes.pixelstrap.com/voxo/back-end/assets/images/hour.svg (from https://themes.pixelstrap.com/voxo/back-end/assets/css/style.css)
+22:25:34	Error: 	"Not Found" (404) at link https://themes.pixelstrap.com/voxo/back-end/assets/images/other-images/calender-bg.png (from https://themes.pixelstrap.com/voxo/back-end/assets/css/style.css)
+22:25:34	Error: 	"Not Found" (404) at link https://themes.pixelstrap.com/voxo/back-end/assets/images/other-images/maintenance-bg.jpg (from https://themes.pixelstrap.com/voxo/back-end/assets/css/style.css)
+22:25:34	Error: 	"Not Found" (404) at link https://themes.pixelstrap.com/voxo/back-end/assets/assets/images/landing/title.gif (from https://themes.pixelstrap.com/voxo/back-end/assets/css/style.css)
+22:25:34	Error: 	"Not Found" (404) at link https://themes.pixelstrap.com/voxo/back-end/assets/assets/images/landing/email-bg.jpg (from https://themes.pixelstrap.com/voxo/back-end/assets/css/style.css)
+22:25:34	Error: 	"Not Found" (404) at link https://themes.pixelstrap.com/voxo/back-end/assets/images/landing/left-left.png (from https://themes.pixelstrap.com/voxo/back-end/assets/css/style.css)
+22:25:34	Error: 	"Not Found" (404) at link https://themes.pixelstrap.com/voxo/back-end/assets/images/landing/leaf-right.png (from https://themes.pixelstrap.com/voxo/back-end/assets/css/style.css)
+22:25:34	Error: 	"Not Found" (404) at link https://themes.pixelstrap.com/voxo/back-end/assets/images/social-app/social-image.png (from https://themes.pixelstrap.com/voxo/back-end/assets/css/style.css)
+22:25:34	Error: 	"Not Found" (404) at link https://themes.pixelstrap.com/voxo/back-end/assets/images/other-images/bg-profile.png (from https://themes.pixelstrap.com/voxo/back-end/assets/css/style.css)
+22:25:34	Error: 	"Not Found" (404) at link https://themes.pixelstrap.com/voxo/back-end/assets/images/icon/down- (from https://themes.pixelstrap.com/voxo/back-end/assets/css/style.css)
+22:25:34	Error: 	"Not Found" (404) at link https://themes.pixelstrap.com/voxo/back-end/assets/images/other-images/boxbg.jpg (from https://themes.pixelstrap.com/voxo/back-end/assets/css/style.css)
+22:25:35	Error: 	"Not Found" (404) at link https://themes.pixelstrap.com/voxo/back-end/assets/css/vendors/dropzone-spritemap.png (from https://themes.pixelstrap.com/voxo/back-end/assets/css/vendors/dropzone.css)
+
+HTTrack Website Copier/3.49-2 mirror complete in 41 seconds : 146 links scanned, 125 files written (11734872 bytes overall) [10696994 bytes received at 260902 bytes/sec], 1249681 bytes transferred using HTTP compression in 28 files, ratio 11%, 14.6 requests per connection
+(19 errors, 0 warnings, 0 messages)

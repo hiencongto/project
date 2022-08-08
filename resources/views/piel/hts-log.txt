@@ -1,0 +1,17 @@
+HTTrack3.49-2+htsswf+htsjava launched on Sun, 17 Jul 2022 22:20:28 at https://themes.pixelstrap.com/voxo/front-end/index.html +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://themes.pixelstrap.com/voxo/front-end/index.html -O1 "F:\MyWebSite\piel" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+22:22:42	Error: 	"Not Found" (404) at link https://themes.pixelstrap.com/voxo/front-end/demo3.html (from https://themes.pixelstrap.com/voxo/front-end/flower-demo.html)
+22:22:44	Error: 	"Not Found" (404) at link https://themes.pixelstrap.com/voxo/front-end/product-left-sidebar (from https://themes.pixelstrap.com/voxo/front-end/shop-with-category.html)
+22:22:44	Error: 	"Not Found" (404) at link https://themes.pixelstrap.com/voxo/front-end/www.facebook.com (from https://themes.pixelstrap.com/voxo/front-end/log-in.html)
+22:22:44	Error: 	"Not Found" (404) at link https://themes.pixelstrap.com/voxo/front-end/www.gmail.com (from https://themes.pixelstrap.com/voxo/front-end/log-in.html)
+22:22:44	Error: 	"Not Found" (404) at link https://themes.pixelstrap.com/voxo/front-end/www.twitter.com (from https://themes.pixelstrap.com/voxo/front-end/about-us.html)
+22:22:44	Error: 	"Not Found" (404) at link https://themes.pixelstrap.com/voxo/front-end/www.google.com (from https://themes.pixelstrap.com/voxo/front-end/about-us.html)
+
+HTTrack Website Copier/3.49-2 mirror complete in 2 minutes 16 seconds : 473 links scanned, 466 files written (76184538 bytes overall) [66731118 bytes received at 490669 bytes/sec], 10346305 bytes transferred using HTTP compression in 64 files, ratio 6%, 13.9 requests per connection
+(6 errors, 0 warnings, 0 messages)
