@@ -1,11 +1,6 @@
 @extends('layouts.front_voxo')
 
 @section('content')
-{{--    {{dd($cartQuantity)}}--}}
-{{--    @foreach($districts as $district)--}}
-{{--        {{print_r($district->province->name)}}--}}
-{{--    @endforeach--}}
-{{--    {{dd()}}--}}
 <!-- Breadcrumb section start -->
 <section class="breadcrumb-section section-b-space">
     <ul class="circles">
@@ -105,8 +100,11 @@
                         </div>
                         <input type="hidden" name="quantity" value="{{$total}}">
                     </div>
-
+                    @if(\Illuminate\Support\Facades\Auth::guard('user')->user())
                     <button class="btn btn-solid-default mt-4" type="submit" >Continue to checkout</button>
+                    @else
+                        <label class="btn btn-solid-default mt-4">Please log in !</label>
+                    @endif
                 </form>
             </div>
 
@@ -125,20 +123,6 @@
                             <span>$.{{number_format($cart['product_price']*$cart['product_quantity'])}}</span>
                         </li>
                         @endforeach
-{{--                        <li class="list-group-item d-flex justify-content-between lh-condensed">--}}
-{{--                            <div>--}}
-{{--                                <h6 class="my-0">Second product</h6>--}}
-{{--                                <small>Brief description</small>--}}
-{{--                            </div>--}}
-{{--                            <span>$8</span>--}}
-{{--                        </li>--}}
-{{--                        <li class="list-group-item d-flex justify-content-between lh-condensed">--}}
-{{--                            <div>--}}
-{{--                                <h6 class="my-0">Third item</h6>--}}
-{{--                                <small>Brief description</small>--}}
-{{--                            </div>--}}
-{{--                            <span>$5</span>--}}
-{{--                        </li>--}}
                         <li class="list-group-item d-flex justify-content-between lh-condensed active">
                             <div class="text-dark">
                                 <h6 class="my-0">Promo code</h6>

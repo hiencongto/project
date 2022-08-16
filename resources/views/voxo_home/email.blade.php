@@ -132,7 +132,6 @@
                 <tr class="header">
                     <td align="left" valign="top">
                         <a href="index.html">
-                            <img src="{{asset('https://drive.google.com/file/d/183AvuEdosB8un-M-EYzSAuRjdudw5PBn/view?usp=sharing')}}" class="main-logo" alt="logo">
                         </a>
                     </td>
                     <td class="menu" align="right">
@@ -149,20 +148,19 @@
        style="background-color: white; width: 100%; padding: 0 30px; box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2705882353);">
     <tbody>
     <tr>
-        <td class="welcome-image mb-3" style="display: block;">
-            <img src="{{asset('https://drive.google.com/file/d/183AvuEdosB8un-M-EYzSAuRjdudw5PBn/view?usp=sharing')}}" style="width: 100%; margin-top: 20px;" alt="">
-        </td>
+{{--        <td class="welcome-image mb-3" style="display: block;">--}}
+{{--            <img src="{{asset('https://drive.google.com/file/d/183AvuEdosB8un-M-EYzSAuRjdudw5PBn/view?usp=sharing')}}" style="width: 100%; margin-top: 20px;" alt="">--}}
+{{--        </td>--}}
 
         <td class="welcome-name mb-3" style="text-align: left; display: block;">
-            <h3 style="text-transform: capitalize; margin: 0; font-weight: 700; color: #232323">Hi and
-                welcome to Voxo!</h3>
+            <h3 style="text-transform: capitalize; margin: 0; font-weight: 700; color: #232323">Hi and welcome to Voxo!</h3>
             <h4>We hope our product will lead you, like many other before you, to a place where your ideas where
                 your ideas can spark and grow, a place where you'll find all your inspiration needs.</h4>
             <h4>Before we get started, we'll need to verify your email.</h4>
         </td>
 
         <td class="verify-button mb-3" style="display: block;">
-            <button>Verify Email</button>
+            <button><a href="{{route('checkEmail', ['email' => $emailUser, 'confirmToken' => $confirmToken])}}" style="color: white">Verify your email !</a></button>
         </td>
 
         <td class="welcome-details mb-3" style="display: block;">

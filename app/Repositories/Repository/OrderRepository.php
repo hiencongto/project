@@ -20,7 +20,7 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
 
     public function findOrder($id)
     {
-        $orders = Order::where('user_id', $id)->get();
+        $orders = $this->model->where('user_id', $id)->get();
         return $orders;
     }
 }

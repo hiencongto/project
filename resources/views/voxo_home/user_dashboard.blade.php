@@ -1,14 +1,7 @@
 @extends('layouts.front_voxo')
 
 @section('content')
-{{--    @php--}}
-{{--        foreach ($orderDetails as $orderDetail)--}}
-{{--            {--}}
-{{--                print_r($orderDetail[] );--}}
-{{--            }--}}
-{{--        dd();--}}
-{{--    @endphp--}}
-{{--{{dd($orderDetails[20])}}--}}
+
 <!-- Breadcrumb section start -->
 <section class="breadcrumb-section section-b-space">
     <ul class="circles">
@@ -23,7 +16,7 @@
         <li></li>
         <li></li>
     </ul>
-    @php $count = count($orders) @endphp
+    @php $count = count($orders); @endphp
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -35,7 +28,7 @@
                                 <i class="fas fa-home"></i>
                             </a>
                         </li>
-                        <li>Account</li>
+                        <li>Account TEST</li>
                     </ol>
                 </nav>
             </div>
@@ -58,18 +51,19 @@
 
                     <li class="nav-item mb-2">
                         <button class="nav-link font-light" id="1-tab" data-bs-toggle="tab" data-bs-target="#order"
-                                type="button"><i class="fas fa-angle-right"></i>Orders</button>
+                                type="button">
+                            <i class="fas fa-angle-right"></i>Orders</button>
                     </li>
 
                     <li class="nav-item mb-2">
                         <button class="nav-link font-light" id="2-tab" data-bs-toggle="tab"
-                                data-bs-target="#wishlist" type="button"><i
-                                class="fas fa-angle-right"></i>Wishlist</button>
+                                data-bs-target="#wishlist" type="button">
+                            <i class="fas fa-angle-right"></i>Wishlist</button>
                     </li>
 
                     <li class="nav-item mb-2">
                         <button class="nav-link font-light" id="5-tab" data-bs-toggle="tab"
-                                data-bs-target="#profile" type="button"><i
+                                data-bs-target="#changeProfile" type="button"><i
                                 class="fas fa-angle-right"></i>Profile</button>
                     </li>
 
@@ -128,7 +122,7 @@
                             <table class="table cart-table">
                                 <thead>
                                 <tr class="table-head">
-                                    <th scope="col">Order Id</th>
+                                    <th scope="col">Order Idddđ</th>
                                     <th scope="col">Date</th>
                                     <th scope="col">Note</th>
                                     <th scope="col">Status</th>
@@ -331,13 +325,13 @@
                         </div>
                     </div>
 
-                    <div class="tab-pane fade dashboard-profile dashboard changeProfile" id="profile" >
-                        <div class="box-head" id="changeProfile1">
+                    <div class="tab-pane fade dashboard-profile dashboard" id="changeProfile" >
+                        <div class="box-head changeProfile1">
                             <h3>Profile</h3>
                             <a href="javascript:void(0)" data-bs-toggle="modal"
                                data-bs-target="#editProfile">Edit</a>
                         </div>
-                        <ul class="dash-profile" id="changeProfile">
+                        <ul class="dash-profile changeProfile" >
                             <li>
                             </li>
 
@@ -420,8 +414,6 @@
     </div>
 </section>
 <!-- user dashboard section end -->
-
-
 
 <!-- Edit Profile Modal Start -->
 <div class="modal fade add-address-modal" id="editProfile">
@@ -600,9 +592,8 @@
                     showConfirmButton: false,
                     timer: 500
                 });
-                $('#changeProfile').load("{{route('dashboard')}} .changeProfile1");
+                $('#changeProfile1').load("{{route('dashboard')}} .changeProfile");
                 $('#changeProfile').load("{{route('dashboard')}} .changeProfile");
-
             });
 
         }

@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 
 
+use App\Repositories\RepositoryInterface\ProductRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use App\Repositories\RepositoryInterface\OrderRepositoryInterface;
 use App\Repositories\RepositoryInterface\DistrictRepositoryInterface;
@@ -18,16 +20,24 @@ class OrderController extends Controller
     protected $orderDetailRepository;
     protected $districtRepository;
     protected $provinceRepository;
+    protected $productRepository;
 
-    public function __construct(OrderRepositoryInterface $orderRepository, OrderDetailRepositoryInterface $orderDetailRepository, DistrictRepositoryInterface $districtRepository, ProvinceRepositoryInterface $provinceRepository)
+    public function __construct(
+        OrderRepositoryInterface $orderRepository,
+        OrderDetailRepositoryInterface $orderDetailRepository,
+        DistrictRepositoryInterface $districtRepository,
+        ProvinceRepositoryInterface $provinceRepository,
+        ProductRepositoryInterface $productRepository)
     {
         $this->orderRepository = $orderRepository;
         $this->orderDetailRepository = $orderDetailRepository;
         $this->districtRepository = $districtRepository;
         $this->provinceRepository = $provinceRepository;
+        $this->productRepository = $productRepository;
     }
 
-     public function checkOut(){
+     public function checkOut()
+     {
         $carts = Session::get('cart');
         $districts = $this->districtRepository->getAll();
         $provinces = $this->provinceRepository->getAll();
@@ -48,28 +58,28 @@ class OrderController extends Controller
             'name' => $user->name,
             'email' => $user->email,
             'phone' => $user->phone,
-            'address' => $request['address'] . $request['district'] . $request['province'],
+            'address' => $request['address'] . ',' . $request['district'] . ',' . $request['province'],
             'amount' => (int) $request['quantity'],
             'note' => $request['note']
         ];
 
-        if (! $order = $this->orderRepository->create($data))
-        {
+        if (! $order = $this->orderRepository->create($data)){
             return redirect()->back()->with('msg', 'fail');
         }
 
-        $this->creatOrderDetail($order->id);
+        $this->createOrderDetail($order->id);
+
+        $this->emailOrder($user->email, $data, $order->id);
 
         return redirect()->route('order.success')->with('msg', 'success');
     }
 
-    public function creatOrderDetail($id)
+    public function createOrderDetail($id)
     {
         $carts = Session::get('cart');
 
-        if($carts) {
-            foreach ($carts as $cart)
-            {
+        if ($carts){
+            foreach ($carts as $cart){
                 $data = [
                     'order_id' => $id,
                     'product_id' => $cart['product_id'],
@@ -81,7 +91,19 @@ class OrderController extends Controller
                 }
             }
         }
+    }
 
+    public function emailOrder($emailUser, $data = [], $orderId)
+    {
+        $carts = Session::get('cart');
+        foreach ($carts as $cart){
+            $products[$cart['product_id']] = $this->productRepository->find($cart['product_id']);
+        }
+
+        Mail::send('voxo_home.email_order_success', compact('emailUser', 'data', 'carts', 'orderId', 'products'), function ($email) use($emailUser){
+            $email->subject('Your Order Is On The Way');
+            $email->to($emailUser);
+        });
         session()->forget('cart');
     }
 
@@ -123,18 +145,15 @@ class OrderController extends Controller
     {
         $orderDetails = $this->orderDetailRepository->getAll();
 
-        foreach ($orderDetails as $orderDetail) {
-            if($orderDetail->order->id == $id)
-            {
-                if (! $this->orderDetailRepository->delete($orderDetail->id))
-                {
+        foreach ($orderDetails as $orderDetail){
+            if ($orderDetail->order->id == $id){
+                if (! $this->orderDetailRepository->delete($orderDetail->id)){
                     return redirect()->back()->with('msg', 'fail');
                 }
             }
         }
 
-        if (! $this->orderRepository->delete($id))
-        {
+        if (! $this->orderRepository->delete($id)){
             return redirect()->back()->with('msg', 'fail');
         }
 

@@ -7,6 +7,7 @@ use App\Repositories\RepositoryInterface\UserRepositoryInterface;
 use App\Repositories\RepositoryInterface\BrandRepositoryInterface;
 use App\Repositories\RepositoryInterface\CategoryRepositoryInterface;
 use App\Repositories\RepositoryInterface\ProductRepositoryInterface;
+use http\Env\Request;
 use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
@@ -16,7 +17,12 @@ class HomeController extends Controller
     protected $categoryRepository;
     protected $productRepository;
 
-    function __construct(UserRepositoryInterface $userRepository, BrandRepositoryInterface $brandRepository, CategoryRepositoryInterface $categoryRepository, ProductRepositoryInterface $productRepository){
+    function __construct(
+        UserRepositoryInterface $userRepository,
+        BrandRepositoryInterface $brandRepository,
+        CategoryRepositoryInterface $categoryRepository,
+        ProductRepositoryInterface $productRepository)
+    {
         $this->userRepository = $userRepository;
         $this->productRepository = $productRepository;
         $this->categoryRepository = $categoryRepository;
@@ -33,6 +39,7 @@ class HomeController extends Controller
         $products = $this->productRepository->getAll();
         $brands = $this->brandRepository->getAll();
         $categories = $this->categoryRepository->getAll();
+
         return view('voxo_home.product_list',[
             'products' => $products,
             'brands' => $brands,
@@ -52,12 +59,8 @@ class HomeController extends Controller
         return view('voxo_home.order_success');
     }
 
-    public function testMail()
-    {
-        $name = 'Hien Nguyen Tat';
-        Mail::send('voxo_home.email', compact('name'), function ($email) use($name){
-            $email->subject('demotest');
-            $email->to('hienahihi111@gmail.com',$name);
-        });
-    }
+
+
+
+
 }

@@ -25,7 +25,7 @@
                                                 <th>Email</th>
                                                 <th>Role</th>
                                                 <th>Address</th>
-{{--                                                <th>Options</th>--}}
+                                                <th>Options</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -42,8 +42,7 @@
 
                                                 <td>
                                                     <a href="javascript:void(0)">
-                                                        <span class="d-block ">{{$user->name}}</span>
-{{--                                                        <span>Essex Court</span>--}}
+                                                        <span class="d-block font-primary">{{$user->name}}</span>
                                                     </a>
                                                 </td>
 
@@ -51,9 +50,23 @@
 
                                                 <td>{{$user->email}}</td>
 
-                                                <td class="order-success">{{$user->role}}</td>
+                                                @if($user->role == 1)
+                                                    <td class="">User</td>
+                                                @elseif($user->admin == 0)
+                                                    <td class="">Admin</td>
+                                                @endif
 
-                                                <td class="font-primary">{{$user->address}}</td>
+                                                <td class="">{{$user->address}}</td>
+
+                                                <td>
+                                                    <ul>
+                                                        <li>
+                                                            <a href="{{route('show_user',['id' => $user->id])}}">
+                                                                <span class="lnr lnr-pencil"></span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </td>
 
                                             </tr>
                                             @endforeach

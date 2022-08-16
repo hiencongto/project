@@ -4,11 +4,7 @@
         <div>
             <div class="title-header title-header-1">
                 <h5>Brand List</h5>
-                <form class="d-inline-flex">
-                    <a href="{{route('add_brand')}}" class="align-items-center btn btn-theme">
-                        <i data-feather="plus-square"></i>Add New
-                    </a>
-                </form>
+
             </div>
 
             <div class="container-fluid">
@@ -22,7 +18,7 @@
                                         <thead>
                                         <tr>
                                             <th>Brand</th>
-                                            <th>Products</th>
+{{--                                            <th>Products</th>--}}
                                             <th>Create Date</th>
                                             <th>Status</th>
                                             <th>Options</th>
@@ -40,19 +36,18 @@
                                                 </a>
                                             </td>
 
-                                            <td>1670</td>
+{{--                                            <td>1670</td>--}}
 
-                                            <td class="font-primary">{{$brand->created_at}}</td>
+                                            <td>{{$brand->created_at}}</td>
 
-                                            <td>{{$brand->status}}</td>
+                                            @if($brand->status == 1)
+                                                <td>In stock</td>
+                                            @elseif($brand->status == 0)
+                                                <td>Out of stock</td>
+                                            @endif
 
                                             <td>
                                                 <ul>
-                                                    <li>
-                                                        <a href="order-detail.html">
-                                                            <span class="lnr lnr-eye"></span>
-                                                        </a>
-                                                    </li>
 
                                                     <li>
                                                         <a href="{{route('show_brand', ['id' => $brand->id])}}">

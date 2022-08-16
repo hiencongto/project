@@ -58,12 +58,6 @@
                                                 <td>
                                                     <ul>
                                                         <li>
-                                                            <a href="order-detail.html">
-                                                                <span class="lnr lnr-eye"></span>
-                                                            </a>
-                                                        </li>
-
-                                                        <li>
                                                             <a href="{{route('show_product',['id' => $product->id])}}">
                                                                 <span class="lnr lnr-pencil"></span>
                                                             </a>

@@ -42,10 +42,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="count-down">
-                    <h5>Your cart will be expired in <span class="count-timer theme-color" id="timer"></span>
-                        minutes !</h5>
-                    <button type="button" onclick="location.href = 'checkout.html';"
-                            class="btn btn-solid-default btn-sm fw-bold">Check Out</button>
+
                 </div>
             </div>
 

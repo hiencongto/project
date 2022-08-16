@@ -1,8 +1,7 @@
 @extends('layouts.front_voxo')
 
 @section('content')
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jQuery/2.1.3/jQuery.min.js">       </script>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Breadcrumb section start -->
 <section class="breadcrumb-section section-b-space">
     <ul class="circles">
@@ -20,7 +19,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h3>Shop Listing</h3>
+                <h3>Shop List</h3>
                 <nav>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
@@ -48,6 +47,7 @@
                     </div>
                     <div class="accordion category-name" id="accordionExample">
 
+                    <form method="get" action="{{route('searchProduct')}}">
                         <div class="accordion-item category-rating">
                             <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
@@ -62,10 +62,9 @@
                                         @foreach($brands as $brand)
                                         <li>
                                             <div class="form-check ps-0 custome-form-check">
-                                                <input class="checkbox_animated check-it" type="checkbox"
-                                                       id="flexCheckDefault1">
+                                                <input class="checkbox_animated check-it" type="radio" name="brand_id" id="flexCheckDefault1" value="{{$brand->id}}">
                                                 <label class="form-check-label" for="flexCheckDefault1">{{$brand->name}}</label>
-                                                <p class="font-light">(25)</p>
+{{--                                                <p class="font-light">(25)</p>--}}
                                             </div>
                                         </li>
                                         @endforeach
@@ -74,19 +73,23 @@
                             </div>
                         </div>
 
-                        <div class="accordion-item category-price">
+                        <div  class="accordion-item category-price ">
                             <h2 class="accordion-header" id="headingFour">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseFour">Price</button>
                             </h2>
-                            <div id="collapseFour" class="accordion-collapse collapse show"
-                                 aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <div class="range-slider category-list">
-                                        <input type="text" class="js-range-slider" value="" />
+                                <div data-role="rangeslider">
+                                    <div data-role="rangeslider" class="ui-rangeslider">
+                                        </br>
+                                        <label for="price-min" id="price-min-label">From:</label>
+                                        <input type="number" data-type="range" name="price_min" id="price-min" value="2" min="0" max="499" class="ui-shadow-inset ui-corner-all ui-slider-input ui-rangeslider-first ui-body-inherit">
+                                        <label for="price-max" id="price-max-label">To:</label>
+                                        <input type="number" data-type="range" name="price_max" id="price-max" value="500" min="500" max="1000" class="ui-shadow-inset ui-corner-all ui-slider-input ui-rangeslider-last ui-body-inherit">
+                                        <div class="ui-rangeslider-sliders"><div role="application" class="ui-slider-track ui-shadow-inset ui-bar-inherit ui-corner-all" aria-disabled="false"><div class="ui-slider-bg ui-btn-active" style="width: 60%; margin-left: 20%;"></div></div><div role="application" class="ui-slider-track ui-shadow-inset ui-bar-inherit ui-corner-all" aria-disabled="false"><div class="ui-slider-bg ui-btn-active" style="width: 60%; margin-left: 20%;"></div><a href="#" class="ui-slider-handle ui-btn ui-shadow ui-btn-null" role="slider" aria-valuemin="0" aria-valuemax="1000" aria-valuenow="200" aria-valuetext="200" title="200" aria-labelledby="price-min-label" style="left: 20%;"></a><a href="#" class="ui-slider-handle ui-btn ui-shadow ui-btn-null" role="slider" aria-valuemin="0" aria-valuemax="1000" aria-valuenow="800" aria-valuetext="800" title="800" aria-labelledby="price-max-label" style="left: 80%;"></a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                         </div>
 
                         <div class="accordion-item category-rating">
@@ -103,11 +106,9 @@
                                         @foreach($categories as $category)
                                         <li>
                                             <div class="form-check ps-0 custome-form-check">
-                                                <input class="checkbox_animated check-it" type="checkbox"
-                                                       id="flexCheckDefault10">
-                                                <label class="form-check-label"
-                                                       for="flexCheckDefault10">{{$category->name}}</label>
-                                                <p class="font-light">(25)</p>
+                                                <input class="checkbox_animated check-it" type="radio" name="category_id" id="flexCheckDefault10" value="{{$category->id}}" >
+                                                <label class="form-check-label" for="flexCheckDefault10">{{$category->name}}</label>
+{{--                                                <p class="font-light">(25)</p>--}}
                                             </div>
                                         </li>
                                         @endforeach
@@ -155,6 +156,15 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="btn btn-solid" type="submit" style="text-align: center;">
+                                   Filter
+                                </button>
+                            </h2>
+                        </div>
+                    </form>
 
                         <!-- Slider section start -->
                         <div class="most-popular">
@@ -316,35 +326,6 @@
                     <!-- label and featured section -->
                     <div class="col-md-12">
                         <ul class="short-name">
-{{--                            <li>--}}
-{{--                                <div class="label-tag">--}}
-{{--                                    <span>Shirts</span>--}}
-{{--                                    <button type="button" class="btn-close" aria-label="Close"></button>--}}
-{{--                                </div>--}}
-{{--                            </li>--}}
-{{--                            <li>--}}
-{{--                                <div class="label-tag">--}}
-{{--                                    <span>Kurtas</span>--}}
-{{--                                    <button type="button" class="btn-close" aria-label="Close"></button>--}}
-{{--                                </div>--}}
-{{--                            </li>--}}
-{{--                            <li>--}}
-{{--                                <div class="label-tag">--}}
-{{--                                    <span>Jackets</span>--}}
-{{--                                    <button type="button" class="btn-close" aria-label="Close"></button>--}}
-{{--                                </div>--}}
-{{--                            </li>--}}
-{{--                            <li>--}}
-{{--                                <div class="label-tag">--}}
-{{--                                    <span>Blazers</span>--}}
-{{--                                    <button type="button" class="btn-close" aria-label="Close"></button>--}}
-{{--                                </div>--}}
-{{--                            </li>--}}
-{{--                            <li>--}}
-{{--                                <div class="label-tag">--}}
-{{--                                    <a href="javascript:void(0)"><span>Clear All</span></a>--}}
-{{--                                </div>--}}
-{{--                            </li>--}}
                         </ul>
                     </div>
 
@@ -513,14 +494,6 @@
                                     <a href="{{route('productdetail', ['id' => $product->id])}}" class="font-default">
                                         <h5 class="ms-0">{{$product->name}}</h5>
                                     </a>
-{{--                                    <div class="listing-content">--}}
-{{--                                        <span class="font-light">Regular Fit</span>--}}
-{{--                                        <p class="font-light">Lorem ipsum, dolor sit amet consectetur adipisicing--}}
-{{--                                            elit. Sit, deserunt? Asperiores aliquam voluptatum culpa aliquid ab--}}
-{{--                                            ducimus eaque illum, quibusdam reiciendis id ad consectetur quis, animi--}}
-{{--                                            qui, minus quidem eveniet! Dolorum magnam numquam, asperiores--}}
-{{--                                            accusantium architecto placeat quam officia, tempore repellendus.</p>--}}
-{{--                                    </div>--}}
                                     <h3 class="theme-color">${{$product->price}}</h3>
                                     <button onclick="location.href = 'cart.html';)" class="btn listing-content">Add To Cart</button>
                                 </div>
@@ -532,29 +505,6 @@
 
                 <nav class="page-section">
                     <ul class="pagination">
-{{--                        <li class="page-item">--}}
-{{--                            <a class="page-link" href="javascript:void(0)" aria-label="Previous">--}}
-{{--                                    <span aria-hidden="true">--}}
-{{--                                        <i class="fas fa-chevron-left"></i>--}}
-{{--                                    </span>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                        <li class="page-item active">--}}
-{{--                            <a class="page-link" href="javascript:void(0)">1</a>--}}
-{{--                        </li>--}}
-{{--                        <li class="page-item">--}}
-{{--                            <a class="page-link" href="javascript:void(0)">2</a>--}}
-{{--                        </li>--}}
-{{--                        <li class="page-item">--}}
-{{--                            <a class="page-link" href="javascript:void(0)">3</a>--}}
-{{--                        </li>--}}
-{{--                        <li class="page-item">--}}
-{{--                            <a class="page-link" aria-label="Next">--}}
-{{--                                    <span aria-hidden="true">--}}
-{{--                                        <i class="fas fa-chevron-right"></i>--}}
-{{--                                    </span>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
                     </ul>
                 </nav>
             </div>
@@ -587,6 +537,8 @@
     </div>
 </section>
 <!-- Subscribe Section End -->
+
+
 
 
 @endsection

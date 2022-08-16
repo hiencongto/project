@@ -50,6 +50,7 @@
     <!-- slick css -->
     <link rel="stylesheet" type="text/css" href="{{asset('voxo_front/assets/css/vendors/slick/slick.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('voxo_front/assets/css/vendors/slick/slick-theme.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('voxo_front/assets/css/element-category.css')}}">
 
     <!-- Theme css -->
     <link id="color-link" rel="stylesheet" type="text/css" href="{{asset('voxo_front/assets/css/demo2.css')}}">
@@ -243,77 +244,17 @@
                             </ul>
                         </div>
                         <div class="search-full">
-                            <div class="input-group">
+                                <form action="{{route("searchName")}}" method="get" class="input-group">
                                     <span class="input-group-text">
-                                        <i data-feather="search" class="font-light"></i>
-                                    </span>
-                                <input type="text" class="form-control search-type" placeholder="Search here..">
+                                    <button class="btn btn-solid" type="submit">
+                                        <i data-feather="search" class="font-light" ></i>
+                                    </button>
+                                </span>
+                                <input type="text" class="form-control search-type" name="searchName" id="searchName" placeholder="Search here..">
                                 <span class="input-group-text close-search">
-                                        <i data-feather="x" class="font-light"></i>
-                                    </span>
-                            </div>
-                            <div class="search-suggestion">
-                                <ul class="custom-scroll">
-                                    <li>
-                                        <div class="product-cart media">
-                                            <img src="{{asset('voxo_front/assets/images/electronics/product/1.jpg')}}"
-                                                 class="img-fluid blur-up lazyload" alt="">
-                                            <div class="media-body">
-                                                <a href="javascript:void(0)">
-                                                    <h6 class="mb-1">New Smart Watch 4 ERT2</h6>
-                                                </a>
-                                                <ul class="rating p-0">
-                                                    <li>
-                                                        <i class="fas fa-star theme-color"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-star theme-color"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-star theme-color"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-star"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-star"></i>
-                                                    </li>
-                                                </ul>
-                                                <p class="mb-0 mt-1">$28.00</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="product-cart media">
-                                            <img src="{{asset('voxo_front/assets/images/electronics/product/5.jpg')}}"
-                                                 class="img-fluid blur-up lazyload" alt="">
-                                            <div class="media-body">
-                                                <a href="javascript:void(0)">
-                                                    <h6 class="mb-1">Powermatic 900 W Juicer</h6>
-                                                </a>
-                                                <ul class="rating m-0 p-0">
-                                                    <li>
-                                                        <i class="fas fa-star theme-color"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-star theme-color"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-star theme-color"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-star theme-color"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-star theme-color"></i>
-                                                    </li>
-                                                </ul>
-                                                <p class="mb-0 mt-1">$35.00</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
+                                    <i data-feather="x" class="font-light"></i>
+                                </span>
+                                </form>
                         </div>
                     </div>
                 </div>
@@ -906,8 +847,16 @@
 <script src="{{asset('voxo_front/assets/js/theme-setting.js')}}"></script>
 <script src="{{asset('voxo_front/assets/js/script.js')}}"></script>
 
-</body>
+{{--<script>--}}
+{{--    function searchName(){--}}
+{{--        var name = $('#searchName').val();--}}
+{{--        $.get("{{route('searchProductName')}}", {'name' : name}, function (){--}}
+{{--            alert('check');--}}
+{{--        });--}}
+{{--    }--}}
+{{--</script>--}}
 
+</body>
 
 <!-- Mirrored from themes.pixelstrap.com/voxo/front-end/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Jul 2022 15:21:03 GMT -->
 </html>

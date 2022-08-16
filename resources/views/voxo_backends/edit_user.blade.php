@@ -37,7 +37,7 @@
                                                             class="form-label-title col-lg-2 col-md-3 mb-0">Full
                                                             Name</label>
                                                         <div class="col-md-9 col-lg-10">
-                                                            <input class="form-control" type="text" name="name" value="{{$user->name}}">
+                                                            {{$user->name}}
                                                         </div>
                                                     </div>
 
@@ -45,7 +45,7 @@
                                                         <label
                                                             class="col-lg-2 col-md-3 col-form-label form-label-title">Phone</label>
                                                         <div class="col-md-9 col-lg-10">
-                                                            <input class="form-control" type="text" name="phone" value="{{$user->phone}}">
+                                                           {{$user->phone}}
                                                         </div>
                                                     </div>
 
@@ -54,7 +54,7 @@
                                                             class="col-lg-2 col-md-3 col-form-label form-label-title">Email
                                                             Address</label>
                                                         <div class="col-md-9 col-lg-10">
-                                                            <input class="form-control" type="email" name="email" value="{{$user->email}}">
+                                                            {{$user->email}}
                                                         </div>
                                                     </div>
 
@@ -62,17 +62,18 @@
                                                         <label
                                                             class="col-lg-2 col-md-3 col-form-label form-label-title">Address</label>
                                                         <div class="col-md-9 col-lg-10">
-                                                            <input class="form-control" type="text" name="address" value="{{$user->address}}">
+                                                            {{$user->address}}
                                                         </div>
                                                     </div>
 
-                                                    <div class="row align-items-center">
+                                                    <div class="mb-4 row align-items-center">
                                                         <label
-                                                            class="col-lg-2 col-md-3 col-form-label form-label-title">
-                                                            Password
-                                                        </label>
+                                                            class="col-lg-2 col-md-3 col-form-label form-label-title">Role</label>
                                                         <div class="col-md-9 col-lg-10">
-                                                            <input class="form-control" type="password" name="password" value="{{$user->password}}">
+                                                            <select name="role">
+                                                                <option value="1">User</option>
+                                                                <option value="0">Admin</option>
+                                                            </select>
                                                         </div>
                                                     </div>
 

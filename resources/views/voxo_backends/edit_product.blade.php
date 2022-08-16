@@ -61,7 +61,7 @@
                                             <div class="mb-4 row align-items-center">
                                                 <label class="col-sm-2 col-form-label form-label-title">Images</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="file" id="formFileMultiple" name="image" multiple>
+                                                    <input class="form-control" type="file" id="formFileMultiple" name="image" multiple value="{{asset('images'.$product->image)}}">
                                                 </div>
                                             </div>
 

@@ -86,7 +86,7 @@ class BrandController extends Controller
         $image_name =$image_edit -> getClientoriginalName();
         $storedPath = $image_edit->move('images', $image_name);
 
-        if (! $brand) {
+        if (! $brand){
             redirect()->route()->with('msg', 'fail');
         }
 
@@ -96,7 +96,7 @@ class BrandController extends Controller
             'status' => $request['status']
         ];
 
-        if(! $this->brandRepository->update($id, $data)){
+        if (! $this->brandRepository->update($id, $data)){
             return view('voxo_backends.edit_brand',[
                 'brand' => $brand
             ]);

@@ -1,6 +1,7 @@
 @extends('layouts.front_voxo')
 
 @section('content')
+
 <body class="signup-page theme-color2">
 
 <!-- Sign Up Section Start -->
@@ -12,7 +13,9 @@
                 <div class="login-title">
                     <h2>Register</h2>
                 </div>
-
+                @if($errors)
+                    {{$errors->first('name')}}
+                @endif
                 <div class="input">
                     <label for="name">Name</label>
                     <input type="text" name="name" id="name" required>

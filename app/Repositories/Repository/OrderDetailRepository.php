@@ -22,7 +22,7 @@ class OrderDetailRepository extends BaseRepository implements OrderDetailReposit
 
     public function detail($id)
     {
-        $orderDetails = OrderDetail::where('order_id', $id)->get();
+        $orderDetails = $this->model->where('order_id', $id)->get();
 
         return $orderDetails;
     }

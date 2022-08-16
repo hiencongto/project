@@ -6,7 +6,7 @@ use App\Repositories\RepositoryInterface\ProductRepositoryInterface;
 use App\Repositories\RepositoryInterface\BrandRepositoryInterface;
 use App\Repositories\RepositoryInterface\CategoryRepositoryInterface;
 use Illuminate\Http\Request;
-use Session;
+use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
 {
@@ -14,7 +14,10 @@ class ProductController extends Controller
     protected $categoryRepository;
     protected $brandRepository;
 
-    public function __construct(ProductRepositoryInterface $productRepository, CategoryRepositoryInterface $categoryRepository, BrandRepositoryInterface $brandRepository)
+    public function __construct(
+        ProductRepositoryInterface $productRepository,
+        CategoryRepositoryInterface $categoryRepository,
+        BrandRepositoryInterface $brandRepository)
     {
         $this->productRepository = $productRepository;
         $this->categoryRepository = $categoryRepository;
@@ -43,7 +46,6 @@ class ProductController extends Controller
 
         $image = $request -> file('image');
         $image_name =$image -> getClientoriginalName();
-//        $image->move(resource_path('image', $image_name));
         $storedPath = $image->move('images', $image_name);
         $data = [
             'name' => $request['name'],
@@ -53,7 +55,7 @@ class ProductController extends Controller
             'brand_id' => $request['brand_id']
         ];
 
-        if(! $this->productRepository->create($data)){
+        if (! $this->productRepository->create($data)){
             return view('voxo_backends.add_new_product', [
                 'categories' => $categories,
                 'brands' => $brands
@@ -101,7 +103,8 @@ class ProductController extends Controller
         $brands = $this->brandRepository->getAll();
         $categories = $this->categoryRepository->getAll();
         $product = $this->productRepository->find($id);
-        if(! $product){
+
+        if (! $product){
             return redirect()-> route('all_products')->with('msg', 'fail');
         }
 
@@ -118,7 +121,7 @@ class ProductController extends Controller
         $categories = $this->categoryRepository->getAll();
         $product = $this->productRepository->find($id);
 
-        if(! $product){
+        if (! $product){
             redirect()->route('all_product')->with('msg', 'fail');
         }
 
@@ -151,7 +154,34 @@ class ProductController extends Controller
         }
 
         return redirect()->route('all_products')->with('msg', 'success');
+    }
 
+
+    public function searchName(Request $request)
+    {
+        $name = $request->searchName;
+        $products = $this->productRepository->searchName($name);
+        $categories = $this->categoryRepository->getAll();
+        $brands = $this->brandRepository->getAll();
+
+        return view('voxo_home.search', [
+            'products' => $products,
+            'categories' => $categories,
+            'brands'=> $brands
+        ]) ;
+    }
+
+    public function searchProduct(Request $request)
+    {
+        $products = $this->productRepository->searchProduct($request);
+        $categories = $this->categoryRepository->getAll();
+        $brands = $this->brandRepository->getAll();
+
+        return view('voxo_home.search', [
+            'products' => $products,
+            'categories' => $categories,
+            'brands'=> $brands
+        ]) ;
     }
 
 }

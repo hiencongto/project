@@ -49,13 +49,10 @@ class CartController extends Controller
 
     public function showCart()
     {
-
         $carts = Session::get('cart');
 
-        if($carts)
-        {
-            foreach ($carts as $cart)
-            {
+        if ($carts){
+            foreach ($carts as $cart){
                 $id = $cart['product_id'];
                 $products = $this->productRepository->find($id);
                 $carts[$id]['product_name'] = $products->name;
@@ -82,20 +79,22 @@ class CartController extends Controller
         return redirect()->route('show.cart')->with('msg', 'oke');
     }
 
-    public function deleteAllCart(){
+    public function deleteAllCart()
+    {
         session()->forget('cart');
 
         return redirect()->route('show.cart')->with('msg', 'oke');
     }
 
-    public function updateCart(Request $request){
+    public function updateCart(Request $request)
+    {
         $data = $request->all();
         $carts = Session::get('cart');
 
-        if($data['quantity'] >0){
+        if ($data['quantity'] >0){
             foreach ($carts as $cart){
                 $id = $cart['product_id'];
-                if($id == (int)$data['id']){
+                if ($id == (int)$data['id']){
                     $carts[$id]['product_quantity']=(int)$data['quantity'];
                 }
             }
@@ -103,18 +102,17 @@ class CartController extends Controller
         }
     }
 
-    public function miniCart(){
+    public function miniCart()
+    {
         return view('layouts.front_voxo');
     }
 
-    public function showMiniCart(){
-
+    public function showMiniCart()
+    {
         $carts = Session::get('cart');
 
-        if($carts)
-        {
-            foreach ($carts as $cart)
-            {
+        if ($carts){
+            foreach ($carts as $cart){
                 $id = $cart['product_id'];
                 $products = $this->productRepository->find($id);
                 $carts[$id]['product_name'] = $products->name;

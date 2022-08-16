@@ -302,9 +302,6 @@
                                     <li>
                                         <a href="{{route('all_users')}}">All Users</a>
                                     </li>
-                                    <li>
-                                        <a href="{{route('add_user')}}">Add New User</a>
-                                    </li>
                                 </ul>
                             </li>
 
@@ -343,11 +340,11 @@
                                 </a>
                                 <ul class="sidebar-submenu">
                                     <li>
-                                        <a href="translation.html">Category List</a>
+                                        <a href="{{route('all_categories')}}">Category List</a>
                                     </li>
 
                                     <li>
-                                        <a href="currency-rates.html">Add New Category</a>
+                                        <a href="{{route('add_category')}}">Add New Category</a>
                                     </li>
 
                                 </ul>
@@ -386,52 +383,52 @@
                                 </ul>
                             </li>
 
-                            <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav" href="product-review.html">
-                                    <i data-feather="star"></i>
-                                    <span>Product Review</span>
-                                </a>
-                            </li>
+{{--                            <li class="sidebar-list">--}}
+{{--                                <a class="sidebar-link sidebar-title link-nav" href="product-review.html">--}}
+{{--                                    <i data-feather="star"></i>--}}
+{{--                                    <span>Product Review</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
 
-                            <li class="sidebar-list">
-                                <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
-                                    <i data-feather="settings"></i>
-                                    <span>Settings</span>
-                                </a>
-                                <ul class="sidebar-submenu">
-                                    <li>
-                                        <a href="profile-setting.html">Profile Setting</a>
-                                    </li>
-                                </ul>
-                            </li>
+{{--                            <li class="sidebar-list">--}}
+{{--                                <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">--}}
+{{--                                    <i data-feather="settings"></i>--}}
+{{--                                    <span>Settings</span>--}}
+{{--                                </a>--}}
+{{--                                <ul class="sidebar-submenu">--}}
+{{--                                    <li>--}}
+{{--                                        <a href="profile-setting.html">Profile Setting</a>--}}
+{{--                                    </li>--}}
+{{--                                </ul>--}}
+{{--                            </li>--}}
 
-                            <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav" href="reports.html">
-                                    <i data-feather="file-text"></i>
-                                    <span>Reports</span>
-                                </a>
-                            </li>
+{{--                            <li class="sidebar-list">--}}
+{{--                                <a class="sidebar-link sidebar-title link-nav" href="reports.html">--}}
+{{--                                    <i data-feather="file-text"></i>--}}
+{{--                                    <span>Reports</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
 
-                            <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav" href="login.html">
-                                    <i data-feather="log-in"></i>
-                                    <span>Log In</span>
-                                </a>
-                            </li>
+{{--                            <li class="sidebar-list">--}}
+{{--                                <a class="sidebar-link sidebar-title link-nav" href="login.html">--}}
+{{--                                    <i data-feather="log-in"></i>--}}
+{{--                                    <span>Log In</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
 
-                            <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav" href="forgot-password.html">
-                                    <i data-feather="key"></i>
-                                    <span>Forgot Password</span>
-                                </a>
-                            </li>
+{{--                            <li class="sidebar-list">--}}
+{{--                                <a class="sidebar-link sidebar-title link-nav" href="forgot-password.html">--}}
+{{--                                    <i data-feather="key"></i>--}}
+{{--                                    <span>Forgot Password</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
 
-                            <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav" href="sign-up.html">
-                                    <i data-feather="plus-circle"></i>
-                                    <span>Register</span>
-                                </a>
-                            </li>
+{{--                            <li class="sidebar-list">--}}
+{{--                                <a class="sidebar-link sidebar-title link-nav" href="sign-up.html">--}}
+{{--                                    <i data-feather="plus-circle"></i>--}}
+{{--                                    <span>Register</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
                         </ul>
                     </div>
                     <div class="right-arrow" id="right-arrow">

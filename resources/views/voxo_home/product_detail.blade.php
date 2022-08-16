@@ -147,7 +147,7 @@
                                     <span class="label-text">in fashion</span>
                                 </div>
 
-                                <h3 class="price-detail">${{$product->price}} <del>$459.00</del><span>55% off</span></h3>
+                                <h3 class="price-detail">${{$product->price}}</h3>
 
                                 <div class="color-image">
                                     <div class="image-select">
