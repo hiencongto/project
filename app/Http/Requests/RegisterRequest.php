@@ -28,10 +28,10 @@ class RegisterRequest extends FormRequest
 
         return $rules = [
             'name' => 'required',
-            'phone'=> 'required|numeric|min:10|max:11|',
+            'phone'=> 'required|regex:/(0)[0-9]/|min:10|max:12',
             'email' => 'required|email',
             'address' => 'required',
-            'password' => 'required'
+            'password' => 'required|min:8|max:15|regex:/[0-9][a-z][A-Z][@!#$%^&*]/'
 
         ];
     }
@@ -47,14 +47,17 @@ class RegisterRequest extends FormRequest
         ];
     }
 
+    /**
+     * @return string[]
+     */
     public function messages()
     {
         return  [
-            'phone.min' => ':attribute is malformed.',
-            'phone.max' => ':attribute is malformed.',
-            'numeric' => ':attribute must be numeric',
+            'phone.min' => ':attribute format is invalid.',
+            'phone.max' => ':attribute format is invalid.',
             'required' => ':attribute is required.',
-            'email' => ':attribute is malformed.'
+            'email' => ':attribute format is invalid.',
+            'password.min' => ':attribute length must be at least 8 characters.'
         ];
     }
 }

@@ -21,6 +21,7 @@ class CartController extends Controller
         $data = $request->query();
         $id = (int)$data['id'];
         $quantity = (int)$data['quantity'];
+        $product = $this->productRepository->find($id);
         $carts = Session::get('cart');
 
             if(preg_match($pattern, $quantity))
@@ -28,7 +29,10 @@ class CartController extends Controller
                 if ($quantity > 0)
                 {
                     if (isset($carts[$id])) {
-                        $carts[$id]['product_quantity'] += $quantity;
+                        if ($carts[$id]['product_quantity'] + $quantity <= $product->product_quantity) {
+                            $carts[$id]['product_quantity'] += $quantity;
+                        }
+
                     }
                     else{
                         $carts[$id] = array(

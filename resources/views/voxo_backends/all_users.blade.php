@@ -50,9 +50,9 @@
 
                                                 <td>{{$user->email}}</td>
 
-                                                @if($user->role == 1)
+                                                @if($user->role == 'user')
                                                     <td class="">User</td>
-                                                @elseif($user->admin == 0)
+                                                @elseif($user->role == 'admin')
                                                     <td class="">Admin</td>
                                                 @endif
 

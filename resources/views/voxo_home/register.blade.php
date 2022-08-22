@@ -12,10 +12,15 @@
                 @csrf
                 <div class="login-title">
                     <h2>Register</h2>
-                </div>
-                @if($errors)
-                    {{$errors->first('name')}}
+                </div><br>
+                @if (session('statusRegister'))
+                    <p style="color: red">{{ session('statusRegister') }}</p>
                 @endif
+
+                @foreach ($errors->all() as $error)
+                    <p style="color: red">{{ $error }}</p><br>
+                @endforeach
+
                 <div class="input">
                     <label for="name">Name</label>
                     <input type="text" name="name" id="name" required>
@@ -54,7 +59,7 @@
                 </div>
             </form>
 
-            <p><a href="{{route('login')}}" class="theme-color">Already have an account?</a></p>
+            <p>Already have an account ? <a href="{{route('login')}}" class="theme-color">Sign in now</a></p>
         </div>
     </div>
 </div>

@@ -82,9 +82,9 @@
                                     <div data-role="rangeslider" class="ui-rangeslider">
                                         </br>
                                         <label for="price-min" id="price-min-label">From:</label>
-                                        <input type="number" data-type="range" name="price_min" id="price-min" value="2" min="0" max="499" class="ui-shadow-inset ui-corner-all ui-slider-input ui-rangeslider-first ui-body-inherit">
+                                        <input type="number" data-type="range" name="price_min" id="price-min" value="2" min="0" max="50000" class="ui-shadow-inset ui-corner-all ui-slider-input ui-rangeslider-first ui-body-inherit">
                                         <label for="price-max" id="price-max-label">To:</label>
-                                        <input type="number" data-type="range" name="price_max" id="price-max" value="500" min="500" max="1000" class="ui-shadow-inset ui-corner-all ui-slider-input ui-rangeslider-last ui-body-inherit">
+                                        <input type="number" data-type="range" name="price_max" id="price-max" value="1000000" min="5001" max="1000000" class="ui-shadow-inset ui-corner-all ui-slider-input ui-rangeslider-last ui-body-inherit">
                                         <div class="ui-rangeslider-sliders"><div role="application" class="ui-slider-track ui-shadow-inset ui-bar-inherit ui-corner-all" aria-disabled="false"><div class="ui-slider-bg ui-btn-active" style="width: 60%; margin-left: 20%;"></div></div><div role="application" class="ui-slider-track ui-shadow-inset ui-bar-inherit ui-corner-all" aria-disabled="false"><div class="ui-slider-bg ui-btn-active" style="width: 60%; margin-left: 20%;"></div><a href="#" class="ui-slider-handle ui-btn ui-shadow ui-btn-null" role="slider" aria-valuemin="0" aria-valuemax="1000" aria-valuenow="200" aria-valuetext="200" title="200" aria-labelledby="price-min-label" style="left: 20%;"></a><a href="#" class="ui-slider-handle ui-btn ui-shadow ui-btn-null" role="slider" aria-valuemin="0" aria-valuemax="1000" aria-valuenow="800" aria-valuetext="800" title="800" aria-labelledby="price-max-label" style="left: 80%;"></a>
                                             </div>
                                         </div>
@@ -116,179 +116,11 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingFive">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseFive">
-                                        Discount Range
-                                    </button>
-                                </h2>
-                                <div id="collapseFive" class="accordion-collapse collapse show"
-                                     aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <ul class="category-list">
-                                            <li>
-                                                <div class="form-check ps-0 custome-form-check">
-                                                    <input class="checkbox_animated check-it" type="checkbox"
-                                                           id="flexCheckDefault19">
-                                                    <label class="form-check-label" for="flexCheckDefault19">5% and
-                                                        above</label>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="form-check ps-0 custome-form-check">
-                                                    <input class="checkbox_animated check-it" type="checkbox"
-                                                           id="flexCheckDefault20">
-                                                    <label class="form-check-label" for="flexCheckDefault20">10% and
-                                                        above</label>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="form-check ps-0 custome-form-check">
-                                                    <input class="checkbox_animated check-it" type="checkbox"
-                                                           id="flexCheckDefault21">
-                                                    <label class="form-check-label" for="flexCheckDefault21">20% and
-                                                        above</label>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingFive">
-                                        <button class="btn btn-solid" type="submit" style="text-align: center;">
-                                            Filter
-                                        </button>
-                                    </h2>
-                                </div>
+                                <button class="btn btn-solid-default btn-block" type="submit" >
+                                    Filter
+                                </button>
                             </form>
-                            <!-- Slider section start -->
-                            <div class="most-popular">
-                                <div class="title title-2 text-lg-start">
-                                    <h3>Most Popular</h3>
-                                </div>
 
-                                <div class="product-slider round-arrow1">
-                                    <div>
-                                        <div class="row g-3">
-                                            <div class="col-12">
-                                                <div class="product-image">
-                                                    <a href="javascript:void(0)">
-                                                        <img src="{{asset('voxo_front/assets/images/fashion/product/front/1.jpg')}}"
-                                                             class="blur-up lazyload" alt="">
-                                                    </a>
-                                                    <div class="product-details">
-                                                        <h6 class="font-light">Regular Fit</h6>
-                                                        <a href="javascript:void(0)" class="">
-                                                            <h3>Slim Fit Plastic Coat</h3>
-                                                        </a>
-                                                        <h4 class="font-light mt-1"><del>$49.00</del> <span
-                                                                class="theme-color">$35.50</span>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12">
-                                                <div class="product-image">
-                                                    <a href="javascript:void(0)">
-                                                        <img src="{{asset('voxo_front/assets/images/fashion/product/front/2.jpg')}}"
-                                                             class="blur-up lazyload" alt="">
-                                                    </a>
-                                                    <div class="product-details">
-                                                        <h6 class="font-light">Regular Fit</h6>
-                                                        <a href="javascript:void(0)" class="">
-                                                            <h3>Slim Fit Plastic Coat</h3>
-                                                        </a>
-                                                        <h4 class="font-light mt-1"><del>$49.00</del> <span
-                                                                class="theme-color">$35.50</span>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12">
-                                                <div class="product-image">
-                                                    <a href="javascript:void(0)">
-                                                        <img src="{{asset('voxo_front/assets/images/fashion/product/front/3.jpg')}}"
-                                                             class="blur-up lazyload" alt="">
-                                                    </a>
-                                                    <div class="product-details">
-                                                        <h6 class="font-light">Regular Fit</h6>
-                                                        <a href="javascript:void(0)" class="">
-                                                            <h3>Slim Fit Plastic Coat</h3>
-                                                        </a>
-                                                        <h4 class="font-light mt-1"><del>$49.00</del> <span
-                                                                class="theme-color">$35.50</span>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <div class="row g-3">
-                                            <div class="col-12">
-                                                <div class="product-image">
-                                                    <a href="javascript:void(0)">
-                                                        <img src="{{asset('voxo_front/assets/images/fashion/product/front/6.jpg')}}"
-                                                             class="blur-up lazyload" alt="">
-                                                    </a>
-                                                    <div class="product-details">
-                                                        <h6 class="font-light">Regular Fit</h6>
-                                                        <a href="javascript:void(0)" class="">
-                                                            <h3>Slim Fit Plastic Coat</h3>
-                                                        </a>
-                                                        <h4 class="font-light mt-1"><del>$49.00</del> <span
-                                                                class="theme-color">$35.50</span>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12">
-                                                <div class="product-image">
-                                                    <a href="javascript:void(0)">
-                                                        <img src="{{asset('voxo_front/assets/images/fashion/product/front/7.jpg')}}"
-                                                             class="blur-up lazyload" alt="">
-                                                    </a>
-                                                    <div class="product-details">
-                                                        <h6 class="font-light">Regular Fit</h6>
-                                                        <a href="javascript:void(0)" class="">
-                                                            <h3>Slim Fit Plastic Coat</h3>
-                                                        </a>
-                                                        <h4 class="font-light mt-1"><del>$49.00</del> <span
-                                                                class="theme-color">$35.50</span>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12">
-                                                <div class="product-image">
-                                                    <a href="javascript:void(0)">
-                                                        <img src="{{asset('voxo_front/assets/images/fashion/product/front/8.jpg')}}"
-                                                             class="blur-up lazyload" alt="">
-                                                    </a>
-                                                    <div class="product-details">
-                                                        <h6 class="font-light">Regular Fit</h6>
-                                                        <a href="javascript:void(0)" class="">
-                                                            <h3>Slim Fit Plastic Coat</h3>
-                                                        </a>
-                                                        <h4 class="font-light mt-1"><del>$49.00</del> <span
-                                                                class="theme-color">$35.50</span>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Slider Section End -->
                         </div>
                     </div>
                 </div>
@@ -330,63 +162,6 @@
                         <div class="col-12">
                             <div class="filter-options">
                                 <div class="select-options">
-                                    <div class="page-view-filter">
-                                        <div class="dropdown select-featured">
-                                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                                24 Page per view
-                                            </button>
-                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                                <li>
-                                                    <a class="dropdown-item" href="javascript:void(0)">Alphabetically
-                                                        A-Z</a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item" href="javascript:void(0)">Alphabetically
-                                                        Z-A</a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item" href="javascript:void(0)">Price, High To
-                                                        Low</a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item" href="javascript:void(0)">Price, Low To
-                                                        High</a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item" href="javascript:void(0)">Date, Old To
-                                                        New</a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item" href="javascript:void(0)">Date, New To
-                                                        Old</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="dropdown select-featured">
-                                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
-                                                data-bs-toggle="dropdown" aria-expanded="false">
-                                            Select Featured
-                                        </button>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                            <li>
-                                                <a class="dropdown-item" href="javascript:void(0)">Jeans</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="javascript:void(0)">T-Shirt</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="javascript:void(0)">Shirt</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="javascript:void(0)">Jacket</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="javascript:void(0)">Hoodie</a>
-                                            </li>
-                                        </ul>
-                                    </div>
                                 </div>
                                 <div class="grid-options d-sm-inline-block d-none">
                                     <ul class="d-flex">
@@ -441,59 +216,18 @@
                                             </a>
                                         </div>
                                         <div class="cart-wrap">
-                                            <ul>
-                                                <li>
-                                                    <a href="javascript:void(0)" class="addtocart-btn"
-                                                       data-bs-toggle="modal" data-bs-target="#addtocart">
-                                                        <i data-feather="shopping-bag"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:void(0)" data-bs-toggle="modal"
-                                                       data-bs-target="#quick-view" >
-                                                        <i data-feather="eye"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="compare.html">
-                                                        <i data-feather="refresh-cw"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="wishlist.html" class="wishlist">
-                                                        <i data-feather="heart"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
                                         </div>
                                     </div>
                                     <div class="product-details">
                                         <div class="rating-details">
                                             <span class="font-light grid-content">{{$product->brand->name}}</span>
-                                            <ul class="rating mt-0">
-                                                <li>
-                                                    <i class="fas fa-star theme-color"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-star theme-color"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-star"></i>
-                                                </li>
-                                            </ul>
+
                                         </div>
                                         <div class="main-price">
                                             <a href="{{route('productdetail', ['id' => $product->id])}}" class="font-default">
                                                 <h5 class="ms-0">{{$product->name}}</h5>
                                             </a>
                                             <h3 class="theme-color">${{$product->price}}</h3>
-                                            <button onclick="location.href = 'cart.html';)" class="btn listing-content">Add To Cart</button>
                                         </div>
                                     </div>
                                 </div>

@@ -19,6 +19,11 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
         // TODO: Implement logicCreate() method.
     }
 
+    /**
+     * @param string $name
+     *
+     * @return mixed
+     */
     public function searchName(string $name)
     {
         $products = $this->model->where('name', 'like', '%'.$name.'%')->get();
@@ -26,6 +31,11 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
         return $products;
     }
 
+    /**
+     * @param $request
+     *
+     * @return mixed
+     */
     public function searchProduct($request)
     {
         $query = $this->model;
@@ -40,5 +50,15 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
 
 
         return $query->get();
+    }
+
+    public function getByBrandId($brand_id)
+    {
+        return $this->model->where('brand_id', $brand_id)->get()->toArray();
+    }
+
+    public function getByCategoryId($categoty_id)
+    {
+        return $this->model->where('category_id', $categoty_id)->get()->toArray();
     }
 }

@@ -94,26 +94,12 @@
                                             </div>
                                         </li>
                                         <li class="mega-menu home-menu">
-                                            <a href="javascript:void(0)" class="nav-link menu-title">home</a>
+                                            <a href="{{route('home')}}" class="nav-link menu-title gradient-title">home</a>
                                         </li>
                                         <li>
-                                            <a href="javascript:void(0)" class="nav-link menu-title">shop</a>
+                                            <a href="{{route('productlist')}}" class="nav-link menu-title gradient-title">shop</a>
                                         </li>
-                                        <li>
-                                            <a href="javascript:void(0)" class="nav-link menu-title">product</a>
-                                        </li>
-                                        <li class="mega-menu ratio_40">
-                                            <a href="javascript:void(0)" class="nav-link menu-title">
-                                                <div class="gradient-title">Voxo plus</div>
-                                            </a>
 
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)" class="nav-link menu-title">pages</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)" class="nav-link menu-title">blog</a>
-                                        </li>
                                         <li class="mobile-poster d-flex d-xl-none">
                                             <img src="{{asset('voxo_front/assets/images/pwa.png')}}" class="img-fluid" alt="">
                                             <div class="mobile-contain">
@@ -147,9 +133,6 @@
                                                 <a href="{{route('dashboard')}}" class="d-block">{{$user['name']}}</a>
                                             </li>
                                             <li>
-                                                <a href="{{route('login')}}" class="d-block">Profile</a>
-                                            </li>
-                                            <li>
                                                 <a href="{{route('logout')}}" class="d-block">Log out</a>
                                             </li>
                                         </ul>
@@ -167,18 +150,8 @@
                                 </li>
                                 <li class="onhover-dropdown wislist-dropdown ">
                                     <div class="cart-media">
-                                        <a href="wishlist.html">
+                                        <a href="{{route('list.wishlist')}}">
                                             <i data-feather="heart"></i>
-                                            <span class="label label-theme rounded-pill">5</span>
-                                        </a>
-                                    </div>
-                                    <div class="onhover-div">
-                                        <a href="wishlist.html">
-                                            <div class="wislist-empty">
-                                                <i class="fab fa-gratipay"></i>
-                                                <h6 class="mb-1">Your wislist empty !!</h6>
-                                                <p class="font-light mb-0">explore more and shortlist items.</p>
-                                            </div>
                                         </a>
                                     </div>
                                 </li>

@@ -122,12 +122,7 @@
                     <div class="col-lg-4 col-sm-6">
                         <div class="promo-section">
                             <form class="row g-3">
-                                <div class="col-7">
-                                    <input type="text" class="form-control" id="number" placeholder="Coupon Code">
-                                </div>
-                                <div class="col-5">
-                                    <button class="btn btn-solid-default rounded btn">Apply Coupon</button>
-                                </div>
+
                             </form>
                         </div>
                     </div>
@@ -146,8 +141,6 @@
                                     <div class="top-details">
                                         <h3>Cart Totals</h3>
                                         <h6>Total MRP <span>$.{{number_format($total)}}</span></h6>
-                                        <h6>Coupon Discount <span>-$25.00</span></h6>
-                                        <h6>Convenience Fee <span><del>$25.00</del></span></h6>
                                     </div>
                                     <div class="bottom-details">
                                         <a href="{{route('add.order')}}">Process Checkout</a>

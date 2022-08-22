@@ -189,7 +189,7 @@
                         <h4>{{$product->name}}</h4>
                     </td>
                     <td valign="top" style="padding: 0 15px;">
-                        <h5 style="margin-top: 15px;">Three seater Wood Style sofa for Leavingroom</h5>
+                        <h5 style="margin-top: 15px;">{{$product->description}}</h5>
                     </td>
                     <td valign="top" style="padding: 0 15px;">
 {{--                        <h5 style="font-size: 14px; color:#444;margin-top:15px;margin-bottom: 0px;">Size--}}
@@ -207,23 +207,11 @@
                     @endforeach
                 @endforeach
                 <tr>
-                    <td style="line-height: 49px;font-size: 13px;color: #000000;padding-left: 20px;text-align:left;border-right: unset;"
-                        colspan="2">Products:</td>
-                    <td style="line-height: 49px;text-align: right;padding-right: 28px;font-size: 13px;color: #000000;text-align:right;border-left: unset;"
-                        colspan="3" class="price"><b>${{$data['amount']}}</b></td>
-                </tr>
-                <tr>
-                    <td style="line-height: 49px;font-size: 13px;color: #000000;padding-left: 20px;text-align:left;border-right: unset;"
-                        colspan="2">Discount :</td>
-                    <td style="line-height: 49px;text-align: right;padding-right: 28px;font-size: 13px;color: #000000;text-align:right;border-left: unset;"
-                        colspan="3" class="price"><b>$10</b></td>
-                </tr>
-                <tr>
                     <td colspan="2" style="line-height: 49px;font-size: 13px;color: #000000;
                                     padding-left: 20px;text-align:left;border-right: unset;">TOTAL PAID :</td>
                     <td colspan="3" class="price"
                         style="line-height: 49px;text-align: right;padding-right: 28px;font-size: 13px;color: #000000;text-align:right;border-left: unset;">
-                        <b>$2600</b>
+                        <b>${{number_format($data['amount'])}}</b>
                     </td>
                 </tr>
                 </tbody>

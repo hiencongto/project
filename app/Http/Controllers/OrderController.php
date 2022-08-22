@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 
+use App\Http\Requests\CheckoutRequest;
 use App\Repositories\RepositoryInterface\ProductRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -49,10 +50,23 @@ class OrderController extends Controller
         ]);
     }
 
-    public function createOrder(Request $request)
+    public function createOrder(CheckoutRequest $request)
     {
-        $user = Auth::guard('user')->user();
+        $carts = Session::get('cart');
+//        dd($carts);
+        foreach ($carts as $cart){
+            $id = $cart['product_id'];
+            $product = $this->productRepository->find($id);
+            if ($cart['product_quantity'] > $product->product_quantity) {
+                return redirect()->back()->with('msg', 'fail');
+            }
+            $product_quantity = $product->product_quantity - $cart['product_quantity'];
+            if ( ! $this->productRepository->update($id, ['product_quantity' => $product_quantity])) {
+                return redirect()->back()->with('msg', 'fail');
+            }
+        }
 
+        $user = Auth::guard('user')->user();
         $data = [
             'user_id' => $user->id,
             'name' => $user->name,

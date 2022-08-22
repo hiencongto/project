@@ -28,7 +28,7 @@
                                 <i class="fas fa-home"></i>
                             </a>
                         </li>
-                        <li>Account TEST</li>
+                        <li>Account</li>
                     </ol>
                 </nav>
             </div>
@@ -56,22 +56,11 @@
                     </li>
 
                     <li class="nav-item mb-2">
-                        <button class="nav-link font-light" id="2-tab" data-bs-toggle="tab"
-                                data-bs-target="#wishlist" type="button">
-                            <i class="fas fa-angle-right"></i>Wishlist</button>
-                    </li>
-
-                    <li class="nav-item mb-2">
                         <button class="nav-link font-light" id="5-tab" data-bs-toggle="tab"
                                 data-bs-target="#changeProfile" type="button"><i
                                 class="fas fa-angle-right"></i>Profile</button>
                     </li>
 
-                    <li class="nav-item">
-                        <button class="nav-link font-light" id="6-tab" data-bs-toggle="tab"
-                                data-bs-target="#security" type="button"><i
-                                class="fas fa-angle-right"></i>Security</button>
-                    </li>
                 </ul>
             </div>
 
@@ -96,6 +85,9 @@
                                     <div class="box-head">
                                         <h3>Account Information</h3>
                                     </div>
+                                    @foreach ($errors->all() as $error)
+                                        <p style="color: red">{{ $error }}</p><br>
+                                    @endforeach
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="box">
@@ -104,7 +96,6 @@
                                                 <div class="box-content">
                                                     <h6 class="font-light">{{$user->name}} </h6>
                                                     <h6 class="font-light">{{$user->email}}</h6>
-                                                    <a href="javascript:void(0)">Change Password</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -122,7 +113,7 @@
                             <table class="table cart-table">
                                 <thead>
                                 <tr class="table-head">
-                                    <th scope="col">Order Idddđ</th>
+                                    <th scope="col">Order Id</th>
                                     <th scope="col">Date</th>
                                     <th scope="col">Note</th>
                                     <th scope="col">Status</th>
@@ -173,153 +164,6 @@
                                     </td>
                                 </tr>
                                 @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane fade table-dashboard dashboard wish-list-section" id="wishlist">
-                        <div class="box-head mb-3">
-                            <h3>My Wishlish</h3>
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table cart-table">
-                                <thead>
-                                <tr class="table-head">
-                                    <th scope="col">image</th>
-                                    <th scope="col">Order Id</th>
-                                    <th scope="col">Product Details</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Action</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>
-                                        <a href="product-left-sidebar.html">
-                                            <img src="{{asset('voxo_front/assets/images/fashion/product/front/1.jpg')}}"
-                                                 class="blur-up lazyload" alt="">
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <p class="m-0">#125021</p>
-                                    </td>
-                                    <td>
-                                        <p class="fs-6 m-0">Outwear & Coats</p>
-                                    </td>
-                                    <td>
-                                        <p class="theme-color fs-6">$49.54</p>
-                                    </td>
-                                    <td>
-                                        <a href="cart.html" class="btn btn-solid-default btn-sm fw-bold">Move to
-                                            Cart</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="product-left-sidebar.html">
-                                            <img src="{{asset('voxo_front/assets/images/fashion/product/front/2.jpg')}}"
-                                                 class="blur-up lazyload" alt="">
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <p class="m-0">#125367</p>
-                                    </td>
-                                    <td>
-                                        <p class="fs-6 m-0">Outwear & Coats</p>
-                                    </td>
-                                    <td>
-                                        <p class="theme-color fs-6">$49.54</p>
-                                    </td>
-                                    <td>
-                                        <a href="cart.html" class="btn btn-solid-default btn-sm fw-bold">Move to
-                                            Cart</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="product-left-sidebar.html">
-                                            <img src="{{asset('voxo_front/assets/images/fashion/product/front/3.jpg')}}"
-                                                 class="blur-up lazyload" alt="">
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <p class="m-0">#125948</p>
-                                    </td>
-                                    <td>
-                                        <p class="fs-6 m-0">Men's Sweatshirt</p>
-                                    </td>
-                                    <td>
-                                        <p class="theme-color fs-6">$49.54</p>
-                                    </td>
-                                    <td>
-                                        <a href="cart.html" class="btn btn-solid-default btn-sm fw-bold">Move to
-                                            Cart</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="product-left-sidebar.html">
-                                            <img src="{{asset('voxo_front/assets/images/fashion/product/front/4.jpg')}}"
-                                                 class="blur-up lazyload" alt="">
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <p class="m-0">#127569</p>
-                                    </td>
-                                    <td>
-                                        <p class="fs-6 m-0">Men's Hoodie t-shirt</p>
-                                    </td>
-                                    <td>
-                                        <p class="theme-color fs-6">$49.54</p>
-                                    </td>
-                                    <td>
-                                        <a href="cart.html" class="btn btn-solid-default btn-sm fw-bold">Move to
-                                            Cart</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="product-left-sidebar.html">
-                                            <img src="{{asset('voxo_front/assets/images/fashion/product/front/5.jpg')}}"
-                                                 class="blur-up lazyload" alt="">
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <p class="m-0">#127569</p>
-                                    </td>
-                                    <td>
-                                        <p class="fs-6 m-0">Men's Hoodie t-shirt</p>
-                                    </td>
-                                    <td>
-                                        <p class="theme-color fs-6">$49.54</p>
-                                    </td>
-                                    <td>
-                                        <a href="cart.html" class="btn btn-solid-default btn-sm fw-bold">Move to
-                                            Cart</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="product-left-sidebar.html">
-                                            <img src="{{asset('voxo_front/assets/images/fashion/product/front/6.jpg')}}"
-                                                 class="blur-up lazyload" alt="">
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <p class="m-0">#125021</p>
-                                    </td>
-                                    <td>
-                                        <p class="fs-6 m-0">Men's Sweatshirt</p>
-                                    </td>
-                                    <td>
-                                        <p class="theme-color fs-6">$49.54</p>
-                                    </td>
-                                    <td>
-                                        <a href="cart.html" class="btn btn-solid-default btn-sm fw-bold">Move to
-                                            Cart</a>
-                                    </td>
-                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -450,6 +294,33 @@
                     </div>
             </div>
 
+        </div>
+    </div>
+</div>
+
+<div class="modal fade add-address-modal" id="editPassword">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header" id="changePassword">
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body changePassword">
+                <div class="mb-3">
+                    <label for="name" class="form-label font-light">New password</label>
+                    <input type="password" class="form-control changePassword" name="password"  >
+                </div>
+
+                <div class="mb-3">
+                    <label for="address" class="form-label font-light">Confirm password</label>
+                    <input type="password" class="form-control confirmChangePassword" name="confirmNewPassword" >
+                </div>
+
+                <div class="modal-footer pt-0 text-end d-block">
+                    <button type="button" class="btn bg-secondary text-white rounded-1 modal-close-button"
+                            data-bs-dismiss="modal">Close</button>
+                    <button class="btn btn-solid-default rounded-1" onclick="updatePassword({{$user->id}})">Save</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -595,7 +466,21 @@
                 $('#changeProfile1').load("{{route('dashboard')}} .changeProfile");
                 $('#changeProfile').load("{{route('dashboard')}} .changeProfile");
             });
+        }
 
+        function updatePassword(id)
+        {
+            var newPassword = $('.changePassword').val();
+            var confirmNewPassword = $('.confirmChangePassword').val();
+            $.get("{{route('changePassword')}}", { 'id' : id, 'password' : newPassword, 'confirmNewPassword' : confirmNewPassword}, function (){
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Success',
+                    showConfirmButton: false,
+                    timer: 500
+                });
+            })
         }
     </script>
 @endsection

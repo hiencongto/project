@@ -71,8 +71,8 @@
                                                             class="col-lg-2 col-md-3 col-form-label form-label-title">Role</label>
                                                         <div class="col-md-9 col-lg-10">
                                                             <select name="role">
-                                                                <option value="1">User</option>
-                                                                <option value="0">Admin</option>
+                                                                <option value="user" {{$user->role == 'user' ? 'selected' : ''}}>User</option>
+                                                                <option value="admin" {{$user->role == 'admin' ? 'selected' : ''}}>Admin</option>
                                                             </select>
                                                         </div>
                                                     </div>

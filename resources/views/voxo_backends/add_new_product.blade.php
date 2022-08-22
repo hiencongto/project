@@ -58,6 +58,20 @@
                                                 </div>
 
                                                 <div class="mb-4 row align-items-center">
+                                                    <label class="col-sm-2 col-form-label form-label-title">Quantity</label>
+                                                    <div class="col-sm-10">
+                                                        <input class="form-control" type="number" placeholder="Quantity" name="quantity">
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-4 row align-items-center">
+                                                    <label class="col-sm-2 col-form-label form-label-title">Description</label>
+                                                    <div class="col-sm-10">
+                                                        <input class="form-control" type="text" placeholder="Description" name="description">
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-4 row align-items-center">
                                                     <label class="col-sm-2 col-form-label form-label-title">Images</label>
                                                     <div class="col-sm-10">
                                                         <input class="form-control" type="file" id="formFileMultiple" name="image" multiple>

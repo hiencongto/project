@@ -31,8 +31,8 @@
                                                 <label class="col-sm-2 col-form-label form-label-title">Status</label>
                                                 <div class="col-sm-10">
                                                     <select class="js-example-basic-single w-100" name="status">
-                                                        <option value="1">In stock</option>
-                                                        <option value="0">Out of stock</option>
+                                                        <option value="1" {{$brand->status == 1 ? 'selected' : ''}}>In stock</option>
+                                                        <option value="0" {{$brand->status == 0 ? 'selected' : ''}}>Out of stock</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -40,7 +40,7 @@
                                             <div class="mb-4 row align-items-center">
                                                 <label class="col-sm-2 col-form-label form-label-title">Images</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="file" id="formFileMultiple" name="image" multiple value="{{$brand->image}}">
+                                                    <input class="form-control" type="file" id="formFileMultiple" name="image" multiple >
                                                 </div>
                                             </div>
 

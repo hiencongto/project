@@ -26,6 +26,20 @@ class OrderDetailRepository extends BaseRepository implements OrderDetailReposit
 
         return $orderDetails;
     }
+
+    /**
+     * @param $product_id
+     *
+     * @return mixed
+     */
+    public function deleteByProductId($product_id)
+    {
+        if (! $this->model->where('product_id', $product_id)->get()->toArray()) {
+            return true;
+        }
+
+        return $this->model->where('product_id', $product_id)->delete();
+    }
 }
 
 

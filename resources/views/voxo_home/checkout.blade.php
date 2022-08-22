@@ -47,6 +47,9 @@
                 @foreach($carts as $cart)
                     @php $total += $cart['product_price']*$cart['product_quantity']; @endphp
                 @endforeach
+                @foreach ($errors->all() as $error)
+                    <p style="color: red">{{ $error }}</p><br>
+                @endforeach
                 <form class="needs-validation" method="post">
                     @csrf
                     <div class="row g-4">
@@ -96,7 +99,7 @@
 
                         <div class="col-md-12">
                             <label for="zip" class="form-label">Note</label>
-                            <input type="text" class="form-control" id="zip" aria-describedby="emailHelp" placeholder="Note" name="note">
+                            <input type="text" class="form-control" id="zip" aria-describedby="emailHelp" placeholder="Note" name="note" required>
                         </div>
                         <input type="hidden" name="quantity" value="{{$total}}">
                     </div>
@@ -123,27 +126,12 @@
                             <span>$.{{number_format($cart['product_price']*$cart['product_quantity'])}}</span>
                         </li>
                         @endforeach
-                        <li class="list-group-item d-flex justify-content-between lh-condensed active">
-                            <div class="text-dark">
-                                <h6 class="my-0">Promo code</h6>
-                                <small>EXAMPLECODE</small>
-                            </div>
-                            <span>-$5</span>
-                        </li>
                         <li class="list-group-item d-flex lh-condensed justify-content-between">
                             <span class="fw-bold">Total (USD)</span>
                             <strong>$.{{number_format($total)}}</strong>
                         </li>
                     </ul>
 
-                    <form class="card border-0">
-                        <div class="input-group custome-imput-group">
-                            <input type="text" class="form-control" placeholder="Promo code">
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-solid-default rounded-0">Redeem</button>
-                            </div>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>

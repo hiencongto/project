@@ -27,16 +27,17 @@
                                                 </div>
                                             </div>
 
-                                            <div class="mb-4 row align-items-center">
-                                                <label class="col-sm-2 col-form-label form-label-title">Status</label>
-                                                <div class="col-sm-10">
+{{--                                            <div class="mb-4 row align-items-center">--}}
+{{--                                                <label class="col-sm-2 col-form-label form-label-title">Status</label>--}}
+{{--                                                <div class="col-sm-10">--}}
 {{--                                                    <input class="form-control" type="number" placeholder="Price" name="price">--}}
-                                                    <select class="js-example-basic-single w-100" name="status">
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+{{--                                                    <select class="js-example-basic-single w-100" name="status">--}}
+{{--                                                        <option value="1">1</option>--}}
+{{--                                                        <option value="2">2</option>--}}
+{{--                                                    </select>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+                                            <input type="hidden" name="status" value="1">
 
                                             <div class="mb-4 row align-items-center">
                                                 <label class="col-sm-2 col-form-label form-label-title">Images</label>

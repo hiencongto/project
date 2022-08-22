@@ -2,6 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\Feedback;
+use App\Models\Product;
+use App\Repositories\Repository\WishlistRepository;
+use App\Repositories\RepositoryInterface\ChapterRepositoryInterface;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -27,7 +32,10 @@ class AppServiceProvider extends ServiceProvider
         \App\Repositories\RepositoryInterface\OrderRepositoryInterface::class => \App\Repositories\Repository\OrderRepository::class,
         \App\Repositories\RepositoryInterface\OrderDetailRepositoryInterface::class => \App\Repositories\Repository\OrderDetailRepository::class,
          \App\Repositories\RepositoryInterface\DistrictRepositoryInterface::class => \App\Repositories\Repository\DistrictRepository::class,
-         \App\Repositories\RepositoryInterface\ProvinceRepositoryInterface::class => \App\Repositories\Repository\ProvinceRepository::class
+         \App\Repositories\RepositoryInterface\ProvinceRepositoryInterface::class => \App\Repositories\Repository\ProvinceRepository::class,
+        \App\Repositories\RepositoryInterface\WishlistRepositoryInterface::class => \App\Repositories\Repository\WishlistRepository::class,
+        \App\Repositories\RepositoryInterface\FeedbackRepositoryInterface::class => \App\Repositories\Repository\FeedbackRepository::class,
+        \App\Repositories\RepositoryInterface\ChapterRepositoryInterface::class => \App\Repositories\Repository\ChapterRepository::class
     ];
 
     /**
@@ -37,7 +45,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('layouts.front_voxo',function ($view){
+        view()->composer('layouts.front_voxo', function ($view){
             $carts = session()->get('cart');
             $cartQuantity = 0;
             if (isset($carts)){
@@ -46,6 +54,24 @@ class AppServiceProvider extends ServiceProvider
             view()->share([
                'carts' => $carts,
                 'cartQuantity' => $cartQuantity
+            ]);
+        });
+
+        view()->composer('voxo_home.product_detail', function ($view){
+            $feedbacks = Feedback::orderBy('created_at', 'DESC')->get();
+            if (isset($carts)){
+                $cartQuantity = count($carts);
+            }
+            view()->share([
+                'feedbacks' => $feedbacks,
+            ]);
+        });
+
+        view()->composer('voxo_home.home', function ($view){
+            $products = Product::all();
+
+            view()->share([
+                'products' => $products,
             ]);
         });
     }

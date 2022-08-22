@@ -1,4 +1,4 @@
-@extends('layouts.front_voxo');
+@extends('layouts.front_voxo')
 
 @section('content')
 <!-- Log In Section Start -->
@@ -7,7 +7,10 @@
         <div class="box">
             <div class="login-title">
                 <h2>Login</h2>
-            </div>
+            </div> <br>
+            @if (session('statusLogin'))
+                <p style="color: red">{{ session('statusLogin') }}</p>
+            @endif
             <form method="post">
                 @csrf
                 <div class="input">
@@ -25,7 +28,7 @@
                     <span class="spin"></span>
                 </div>
 
-                <a href="forgot.html" class="pass-forgot">Forgot your password?</a>
+                <a href="{{route('resetPassword')}}" class="pass-forgot">Forgot your password?</a>
 
                 <div class="button login">
                     <button type="submit">
