@@ -38,6 +38,7 @@
 <!-- Cart Section Start -->
 <section class="section-b-space">
     <div class="container">
+        @if($carts)
         <div class="row g-4">
             <div class="col-lg-8">
                 <h3 class="mb-3">Billing address</h3>
@@ -135,6 +136,7 @@
                 </div>
             </div>
         </div>
+        @endif
     </div>
 </section>
 <!-- Cart Section End -->

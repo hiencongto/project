@@ -18,6 +18,11 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
         // TODO: Implement logicCreate() method.
     }
 
+    /**
+     * @param $id
+     *
+     * @return mixed
+     */
     public function findOrder($id)
     {
         $orders = $this->model->where('user_id', $id)->get();

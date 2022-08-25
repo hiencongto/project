@@ -209,12 +209,6 @@
                                                      class="bg-img blur-up lazyload" alt="">
                                             </a>
                                         </div>
-                                        <div class="back">
-                                            <a href="product-left-sidebar.html">
-                                                <img src="{{asset('voxo_front/assets/images/fashion/product/back/1.jpg')}}"
-                                                     class="bg-img blur-up lazyload" alt="">
-                                            </a>
-                                        </div>
                                         <div class="cart-wrap">
                                         </div>
                                     </div>

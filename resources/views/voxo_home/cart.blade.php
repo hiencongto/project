@@ -45,7 +45,7 @@
 
                 </div>
             </div>
-
+            @if($carts)
             <div class="col-sm-12 table-responsive mt-4 listcard">
                 <table class="table cart-table pricecard" >
                     <thead>
@@ -142,44 +142,21 @@
                                         <h3>Cart Totals</h3>
                                         <h6>Total MRP <span>$.{{number_format($total)}}</span></h6>
                                     </div>
-                                    <div class="bottom-details">
-                                        <a href="{{route('add.order')}}">Process Checkout</a>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            @else
+                <p style="color: red">Please choose your product !</p>
+            @endif
         </div>
     </div>
 </section>
 <!-- Cart Section End -->
 
-<!-- Subscribe Section Start -->
-<section class="subscribe-section section-b-space">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-md-6">
-                <div class="subscribe-details">
-                    <h2 class="mb-3">Subscribe Our News</h2>
-                    <h6 class="font-light">Subscribe and receive our newsletters to follow the news about our fresh
-                        and fantastic Products.</h6>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mt-md-0 mt-3">
-                <div class="subsribe-input">
-                    <div class="input-group">
-                        <input type="text" class="form-control subscribe-input" placeholder="Your Email Address">
-                        <button class="btn btn-solid-default" type="button">Button</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Subscribe Section End -->
 
     <script>
         function updateCart(id)

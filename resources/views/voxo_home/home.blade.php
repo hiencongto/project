@@ -198,7 +198,7 @@
                             <div class="product-box">
                                 <div class="img-wrapper">
                                     <div class="front">
-                                        <a href="{{route('show_product',['id' => $product->id])}}">
+                                        <a href="{{route('productdetail',['id' => $product->id])}}">
                                             <img src="{{asset('images/'.$product->image)}}"
                                                  class="bg-img blur-up lazyload" alt="">
                                         </a>
@@ -211,7 +211,7 @@
                                         <span class="font-light grid-content">{{$product->brand->name}}</span>
                                     </div>
                                     <div class="main-price">
-                                        <a href="{{route('show_product',['id' => $product->id])}}" class="font-default" tabindex="0">
+                                        <a href="{{route('productdetail',['id' => $product->id])}}" class="font-default" tabindex="0">
                                             <h5>{{$product->name}}</h5>
                                         </a>
                                     </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddCategoryRequest;
 use Illuminate\Http\Request;
 use Session;
 use App\Repositories\RepositoryInterface\CategoryRepositoryInterface;
@@ -45,7 +46,7 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function create(Request $request)
+    public function create(AddCategoryRequest $request)
     {
         $data = [
           'name' => $request->name,
@@ -107,6 +108,11 @@ class CategoryController extends Controller
         return redirect()->route('all_categories')->with('msg', 'success');
     }
 
+    /**
+     * @param int $id
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function show(int $id)
     {
         $category = $this->categoryRepository->find($id);
@@ -122,6 +128,11 @@ class CategoryController extends Controller
         ]);
     }
 
+    /**
+     * @param int $id
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse
+     */
     public function update(int $id, Request $request)
     {
         $category = $this->categoryRepository->find($id);

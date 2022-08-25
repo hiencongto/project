@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddProductRequest;
 use App\Repositories\RepositoryInterface\ProductRepositoryInterface;
 use App\Repositories\RepositoryInterface\BrandRepositoryInterface;
 use App\Repositories\RepositoryInterface\CategoryRepositoryInterface;
@@ -55,12 +56,12 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function create(Request $request)
+    public function create(AddProductRequest $request)
     {
         $categories = $this->categoryRepository->getAll();
         $brands = $this->brandRepository->getAll();
 
-        if (! $request -> hasFile('image')){
+        if (! $request -> hasFile('image') ){
             return view('voxo_backends.add_new_product')->with('msg', 'Chọn file ảnh đê');
         }
 
@@ -86,7 +87,8 @@ class ProductController extends Controller
 
         return view('voxo_backends.add_new_product', [
             'categories' => $categories,
-            'brands' => $brands
+            'brands' => $brands,
+            'msg' => 'OKE !'
         ]);
 
     }

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CheckoutRequest extends FormRequest
+class AddProductRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,11 +23,14 @@ class CheckoutRequest extends FormRequest
      */
     public function rules()
     {
-        return $rules = [
+        return [
             'name' => 'required',
-            'phone'=> 'required|regex:/(0)[0-9]/|min:10|max:12',
-            'email' => 'required|email',
-            'address' => 'required',
+            'price' => 'required',
+            'image' => 'required',
+            'category_id' => 'required',
+            'brand_id' => 'required',
+            'quantity' => 'required',
+            'description' => 'required'
         ];
     }
 
@@ -38,10 +41,12 @@ class CheckoutRequest extends FormRequest
     {
         return [
             'name' => 'Name',
-            'email' => 'Email',
-            'phone' => 'Phone',
-            'address' => 'Address',
-            'password' => 'Password'
+            'price' => 'Price',
+            'image' => 'Image',
+            'category_id' => 'Category_kid',
+            'brand_id' => 'Brand_id',
+            'quantity' => 'Product_quantity',
+            'description' => 'Description'
         ];
     }
 
@@ -51,10 +56,7 @@ class CheckoutRequest extends FormRequest
     public function messages()
     {
         return  [
-            'phone.min' => ':attribute format is invalid.',
-            'phone.max' => ':attribute format is invalid.',
             'required' => ':attribute is required.',
-            'email' => ':attribute format is invalid.',
         ];
     }
 }

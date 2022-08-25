@@ -38,9 +38,17 @@
                                             </div>
 
                                             <div class="mb-4 row align-items-center">
-                                                <label class="col-sm-2 col-form-label form-label-title">Images</label>
+                                                <label class="col-sm-2 col-form-label form-label-title">Image</label>
                                                 <div class="col-sm-10">
                                                     <input class="form-control" type="file" id="formFileMultiple" name="image" multiple >
+                                                </div>
+                                            </div>
+
+                                            <input class="form-control" type="hidden" id="formFileMultiple" name="oldImage" value="{{$brand->image}}" >
+                                            <div class="mb-4 row align-items-center">
+                                                <label class="col-sm-2 col-form-label form-label-title">Image</label>
+                                                <div class="col-sm-10">
+                                                    <img src="{{asset('images/'.$brand->image)}}" class="img-fluid"   alt="">
                                                 </div>
                                             </div>
 

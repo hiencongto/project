@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddBrandRequest;
 use App\Repositories\RepositoryInterface\BrandRepositoryInterface;
 use App\Repositories\RepositoryInterface\ProductRepositoryInterface;
 use App\Repositories\RepositoryInterface\FeedbackRepositoryInterface;
@@ -45,7 +46,7 @@ class BrandController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function create(Request $request)
+    public function create(AddBrandRequest $request)
     {
         if (! $request -> hasFile('image')){
             return view('voxo_backends.add_new_brand')->with('msg', 'Chọn file ảnh đê');
@@ -142,19 +143,30 @@ class BrandController extends Controller
     public function update(int $id, Request $request)
     {
         $brand = $this->brandRepository->find($id);
-        $image_edit = $request -> file('image');
-        $image_name = time() . '_' .$image_edit -> getClientoriginalName();
-        $storedPath = $image_edit->move('images', $image_name);
 
         if (! $brand){
             redirect()->route()->with('msg', 'fail');
         }
 
-        $data = [
-            'name' => $request['name'],
-            'image' => $image_edit -> getClientoriginalName(),
-            'status' => $request['status']
-        ];
+        if ($request->hasFile('image')){
+            $image_edit = $request -> file('image');
+            $image_name = time() . '_' .$image_edit -> getClientoriginalName();
+            $storedPath = $image_edit->move('images', $image_name);
+
+            $data = [
+                'name' => $request['name'],
+                'image' => $image_name,
+                'status' => $request['status']
+            ];
+        }
+        else{
+            $data = [
+                'name' => $request['name'],
+                'image' => $request->oldImage,
+                'status' => $request['status']
+            ];
+        }
+
 
         if (! $this->brandRepository->update($id, $data)){
             return view('voxo_backends.edit_brand',[

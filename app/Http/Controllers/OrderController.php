@@ -37,6 +37,9 @@ class OrderController extends Controller
         $this->productRepository = $productRepository;
     }
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
      public function checkOut()
      {
         $carts = Session::get('cart');
@@ -50,6 +53,11 @@ class OrderController extends Controller
         ]);
     }
 
+    /**
+     * @param CheckoutRequest $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function createOrder(CheckoutRequest $request)
     {
         $carts = Session::get('cart');
@@ -88,6 +96,11 @@ class OrderController extends Controller
         return redirect()->route('order.success')->with('msg', 'success');
     }
 
+    /**
+     * @param $id
+     *
+     * @return \Illuminate\Http\RedirectResponse|void
+     */
     public function createOrderDetail($id)
     {
         $carts = Session::get('cart');
@@ -107,6 +120,15 @@ class OrderController extends Controller
         }
     }
 
+    /**
+     * @param $emailUser
+     *
+     * @param $data
+     *
+     * @param $orderId
+     *
+     * @return void
+     */
     public function emailOrder($emailUser, $data = [], $orderId)
     {
         $carts = Session::get('cart');
@@ -121,6 +143,9 @@ class OrderController extends Controller
         session()->forget('cart');
     }
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function view()
     {
         $orders = $this->orderRepository->getAll();
@@ -130,6 +155,11 @@ class OrderController extends Controller
         ]);
     }
 
+    /**
+     * @param int $id
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function show(int $id)
     {
         $order = $this->orderRepository->find($id);
@@ -139,6 +169,13 @@ class OrderController extends Controller
         ]);
     }
 
+    /**
+     * @param int $id
+     *
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(int $id,Request $request)
     {
         $status = $request->status;
@@ -155,6 +192,11 @@ class OrderController extends Controller
         return redirect()->route('list_order')->with('msg', 'success');
     }
 
+    /**
+     * @param int $id
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function delete(int $id)
     {
         $orderDetails = $this->orderDetailRepository->getAll();
@@ -174,6 +216,11 @@ class OrderController extends Controller
         return redirect()->route('list_order')->with('msg', 'success');
     }
 
+    /**
+     * @param $id
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function detail($id)
     {
         $orderDetails = $this->orderDetailRepository->detail($id);

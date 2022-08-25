@@ -59,9 +59,7 @@ class AppServiceProvider extends ServiceProvider
 
         view()->composer('voxo_home.product_detail', function ($view){
             $feedbacks = Feedback::orderBy('created_at', 'DESC')->get();
-            if (isset($carts)){
-                $cartQuantity = count($carts);
-            }
+
             view()->share([
                 'feedbacks' => $feedbacks,
             ]);

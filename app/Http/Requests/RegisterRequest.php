@@ -36,6 +36,9 @@ class RegisterRequest extends FormRequest
         ];
     }
 
+    /**
+     * @return string[]
+     */
     public function attributes()
     {
         return [

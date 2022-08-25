@@ -29,11 +29,17 @@ class HomeController extends Controller
         $this->brandRepository = $brandRepository;
     }
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function home()
     {
         return view('voxo_home.home');
     }
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function productlist()
     {
         $products = $this->productRepository->getAll();
@@ -47,6 +53,11 @@ class HomeController extends Controller
         ]);
     }
 
+    /**
+     * @param $id
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function productDetail($id){
         $product = $this->productRepository->find($id);
 
@@ -55,6 +66,9 @@ class HomeController extends Controller
         ]);
     }
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function orderSuccess(){
         return view('voxo_home.order_success');
     }

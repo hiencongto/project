@@ -15,6 +15,11 @@ class FeedbackController extends Controller
         $this->feedbackRepository = $feedbackRepository;
     }
 
+    /**
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function create(Request $request)
     {
         $user = Auth::guard('user')->user();

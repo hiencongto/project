@@ -52,11 +52,21 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
         return $query->get();
     }
 
+    /**
+     * @param $brand_id
+     *
+     * @return mixed
+     */
     public function getByBrandId($brand_id)
     {
         return $this->model->where('brand_id', $brand_id)->get()->toArray();
     }
 
+    /**
+     * @param $categoty_id
+     *
+     * @return mixed
+     */
     public function getByCategoryId($categoty_id)
     {
         return $this->model->where('category_id', $categoty_id)->get()->toArray();

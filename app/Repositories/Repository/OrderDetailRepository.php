@@ -20,6 +20,11 @@ class OrderDetailRepository extends BaseRepository implements OrderDetailReposit
         // TODO: Implement logicCreate() method.
     }
 
+    /**
+     * @param $id
+     *
+     * @return mixed
+     */
     public function detail($id)
     {
         $orderDetails = $this->model->where('order_id', $id)->get();

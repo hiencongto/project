@@ -43,6 +43,11 @@ class WishlistRepository extends BaseRepository implements WishlistRepositoryInt
         return $this ->model->where('user_id', $user_id)->get();
     }
 
+    /**
+     * @param $product_id
+     *
+     * @return bool
+     */
     public function deleteByProductId($product_id)
     {
         if (! $this->model->where('product_id', $product_id)->get()->toArray()) {

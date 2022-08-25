@@ -15,6 +15,11 @@ class CartController extends Controller
         $this->productRepository= $productRepository;
     }
 
+    /**
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse|void
+     */
     public function addCart(Request $request)
     {
         $pattern = '/^\d+$/';
@@ -32,7 +37,6 @@ class CartController extends Controller
                         if ($carts[$id]['product_quantity'] + $quantity <= $product->product_quantity) {
                             $carts[$id]['product_quantity'] += $quantity;
                         }
-
                     }
                     else{
                         $carts[$id] = array(
@@ -50,7 +54,9 @@ class CartController extends Controller
                 return redirect()->back()->with('msg', 'âu no');
     }
 
-
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function showCart()
     {
         $carts = Session::get('cart');
@@ -72,6 +78,11 @@ class CartController extends Controller
         ]);
     }
 
+    /**
+     * @param $id
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function deleteCart($id)
     {
         $carts = Session::get('cart');
@@ -83,6 +94,9 @@ class CartController extends Controller
         return redirect()->route('show.cart')->with('msg', 'oke');
     }
 
+    /**
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function deleteAllCart()
     {
         session()->forget('cart');
@@ -90,6 +104,11 @@ class CartController extends Controller
         return redirect()->route('show.cart')->with('msg', 'oke');
     }
 
+    /**
+     * @param Request $request
+     *
+     * @return void
+     */
     public function updateCart(Request $request)
     {
         $data = $request->all();
@@ -106,11 +125,17 @@ class CartController extends Controller
         }
     }
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function miniCart()
     {
         return view('layouts.front_voxo');
     }
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function showMiniCart()
     {
         $carts = Session::get('cart');

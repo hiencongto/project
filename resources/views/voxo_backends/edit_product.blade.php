@@ -25,21 +25,21 @@
                                                 <label class="form-label-title col-sm-2 mb-0">Product
                                                     Name</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="text" placeholder="Product Name" name="name" value="{{$product->name}}">
+                                                    <input class="form-control" type="text" placeholder="Product Name" name="name" value="{{$product->name}}" required>
                                                 </div>
                                             </div>
 
                                             <div class="mb-4 row align-items-center">
                                                 <label class="col-sm-2 col-form-label form-label-title">Price</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="text" placeholder="Price" name="price" value="{{$product->price}}">
+                                                    <input class="form-control" type="text" placeholder="Price" name="price" value="{{$product->price}}" required>
                                                 </div>
                                             </div>
 
                                             <div class="mb-4 row align-items-center">
                                                 <label class="col-sm-2 col-form-label form-label-title">Category</label>
                                                 <div class="col-sm-10">
-                                                    <select class="js-example-basic-single w-100" name="category_id">
+                                                    <select class="js-example-basic-single w-100" name="category_id" required>
                                                         @foreach($categories as $category)
                                                             <option value="{{$category->id}}" {{$product->category_id == $category->id ? 'selected' : '' }}> {{$category->name}}</option>
                                                         @endforeach
@@ -50,7 +50,7 @@
                                             <div class="mb-4 row align-items-center">
                                                 <label class="col-sm-2 col-form-label form-label-title">Brand</label>
                                                 <div class="col-sm-10">
-                                                    <select class="js-example-basic-single w-100" name="brand_id">
+                                                    <select class="js-example-basic-single w-100" name="brand_id" required>
                                                         @foreach($brands as $brand)
                                                             <option value="{{$brand->id}}" {{$product->brand_id == $brand->id ? 'selected' : ''}}>{{$brand->name}}</option>
                                                         @endforeach
@@ -61,18 +61,18 @@
                                             <div class="mb-4 row align-items-center">
                                                 <label class="col-sm-2 col-form-label form-label-title">Quantity</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="text" placeholder="Quantity" name="quantity" value="{{$product->quantity}}">
+                                                    <input class="form-control" type="text" placeholder="Quantity" name="quantity" value="{{$product->quantity}}" >
                                                 </div>
                                             </div>
 
                                             <div class="mb-4 row align-items-center">
                                                 <label class="col-sm-2 col-form-label form-label-title">Image</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="file" id="formFileMultiple" name="image" multiple >
+                                                    <input class="form-control" type="file" id="formFileMultiple" name="image" multiple>
                                                 </div>
                                             </div>
 
-                                            <input class="form-control" type="hidden" id="formFileMultiple" name="oldImage" value="{{$product->image}}" >
+                                            <input class="form-control" type="hidden" id="formFileMultiple" name="oldImage" value="{{$product->image}}">
                                             <div class="mb-4 row align-items-center">
                                                 <label class="col-sm-2 col-form-label form-label-title">Image</label>
                                                 <div class="col-sm-10">

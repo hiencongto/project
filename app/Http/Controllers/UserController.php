@@ -124,6 +124,7 @@ class UserController extends Controller
         }
 
         $this->testMail($request['email'], $confirmToken);
+
         return redirect()->route('afteregister')->with('msg', 'success');
     }
 
@@ -337,10 +338,16 @@ class UserController extends Controller
         }
     }
 
+    /**
+     * @param ChangePasswordRequest $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function changePassword(ChangePasswordRequest $request)
     {
         if ($request->password == $request->confirmPassword) {
             if (! $this->userRepository->changePasswordByEmail($request->email, $request->password)) {
+
                 return redirect()->back()->with('statusChangePassword', 'Please try again !');
             }
 

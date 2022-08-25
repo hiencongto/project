@@ -298,32 +298,32 @@
     </div>
 </div>
 
-<div class="modal fade add-address-modal" id="editPassword">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header" id="changePassword">
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body changePassword">
-                <div class="mb-3">
-                    <label for="name" class="form-label font-light">New password</label>
-                    <input type="password" class="form-control changePassword" name="password"  >
-                </div>
+{{--<div class="modal fade add-address-modal" id="editPassword">--}}
+{{--    <div class="modal-dialog modal-dialog-centered">--}}
+{{--        <div class="modal-content">--}}
+{{--            <div class="modal-header" id="changePassword">--}}
+{{--                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>--}}
+{{--            </div>--}}
+{{--            <div class="modal-body changePassword">--}}
+{{--                <div class="mb-3">--}}
+{{--                    <label for="name" class="form-label font-light">New password</label>--}}
+{{--                    <input type="password" class="form-control changePassword" name="password"  >--}}
+{{--                </div>--}}
 
-                <div class="mb-3">
-                    <label for="address" class="form-label font-light">Confirm password</label>
-                    <input type="password" class="form-control confirmChangePassword" name="confirmNewPassword" >
-                </div>
+{{--                <div class="mb-3">--}}
+{{--                    <label for="address" class="form-label font-light">Confirm password</label>--}}
+{{--                    <input type="password" class="form-control confirmChangePassword" name="confirmNewPassword" >--}}
+{{--                </div>--}}
 
-                <div class="modal-footer pt-0 text-end d-block">
-                    <button type="button" class="btn bg-secondary text-white rounded-1 modal-close-button"
-                            data-bs-dismiss="modal">Close</button>
-                    <button class="btn btn-solid-default rounded-1" onclick="updatePassword({{$user->id}})">Save</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+{{--                <div class="modal-footer pt-0 text-end d-block">--}}
+{{--                    <button type="button" class="btn bg-secondary text-white rounded-1 modal-close-button"--}}
+{{--                            data-bs-dismiss="modal">Close</button>--}}
+{{--                    <button class="btn btn-solid-default rounded-1" onclick="updatePassword({{$user->id}})">Save</button>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 <!-- Edit Profile Modal End -->
 
 <!-- Detail Order Modal Start -->
@@ -360,7 +360,7 @@
                         </td>
 
                         <td>
-                            <p class="mt-0">{{$orderDetail->product->price}}</p>
+                            <p class="mt-0">{{number_format($orderDetail->product->price)}}</p>
                         </td>
                     </tr>
 
@@ -468,19 +468,19 @@
             });
         }
 
-        function updatePassword(id)
-        {
-            var newPassword = $('.changePassword').val();
-            var confirmNewPassword = $('.confirmChangePassword').val();
-            $.get("{{route('changePassword')}}", { 'id' : id, 'password' : newPassword, 'confirmNewPassword' : confirmNewPassword}, function (){
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Success',
-                    showConfirmButton: false,
-                    timer: 500
-                });
-            })
-        }
+        {{--function updatePassword(id)--}}
+        {{--{--}}
+        {{--    var newPassword = $('.changePassword').val();--}}
+        {{--    var confirmNewPassword = $('.confirmChangePassword').val();--}}
+        {{--    $.get("{{route('changePassword')}}", { 'id' : id, 'password' : newPassword, 'confirmNewPassword' : confirmNewPassword}, function (){--}}
+        {{--        Swal.fire({--}}
+        {{--            position: 'top-end',--}}
+        {{--            icon: 'success',--}}
+        {{--            title: 'Success',--}}
+        {{--            showConfirmButton: false,--}}
+        {{--            timer: 500--}}
+        {{--        });--}}
+        {{--    })--}}
+        {{--}--}}
     </script>
 @endsection

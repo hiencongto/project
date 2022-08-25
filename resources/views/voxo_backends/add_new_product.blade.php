@@ -16,7 +16,10 @@
                                         <div class="card-header-2">
                                             <h5>Product Information</h5>
                                         </div>
-
+                                        <p style="color: greenyellow"> {{$msg ?? ''}}</p>
+                                        @foreach ($errors->all() as $error)
+                                            <p style="color: red">{{ $error }}</p><br>
+                                        @endforeach
                                         <form class="theme-form theme-form-2 mega-form" method="post"  enctype="multipart/form-data">
                                             @csrf
                                             <div class="row">

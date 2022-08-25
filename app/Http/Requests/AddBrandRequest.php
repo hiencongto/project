@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CheckoutRequest extends FormRequest
+class AddBrandRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,25 +23,17 @@ class CheckoutRequest extends FormRequest
      */
     public function rules()
     {
-        return $rules = [
+        return [
             'name' => 'required',
-            'phone'=> 'required|regex:/(0)[0-9]/|min:10|max:12',
-            'email' => 'required|email',
-            'address' => 'required',
+            'image' => 'required'
         ];
     }
 
-    /**
-     * @return string[]
-     */
     public function attributes()
     {
         return [
             'name' => 'Name',
-            'email' => 'Email',
-            'phone' => 'Phone',
-            'address' => 'Address',
-            'password' => 'Password'
+            'image' => 'Image'
         ];
     }
 
@@ -51,10 +43,7 @@ class CheckoutRequest extends FormRequest
     public function messages()
     {
         return  [
-            'phone.min' => ':attribute format is invalid.',
-            'phone.max' => ':attribute format is invalid.',
             'required' => ':attribute is required.',
-            'email' => ':attribute format is invalid.',
         ];
     }
 }

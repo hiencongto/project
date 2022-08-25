@@ -70,6 +70,13 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
         return $this->model->where('email', $email)->get()->toArray();
     }
 
+    /**
+     * @param $email
+     *
+     * @param $password
+     *
+     * @return mixed
+     */
     public function changePasswordByEmail($email, $password)
     {
         return $this->model->where('email', $email)->update(['password' => bcrypt($password)]);
